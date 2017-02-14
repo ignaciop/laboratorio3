@@ -123,7 +123,7 @@ Los instrumentos de laboratorio utilizados fueron:
 
 Para lograr hallar la resistencia de la l\'ampara incandescente fue necesario medir la ca\'ida de potencial y la corriente que circulaba por esta. Para ello se coloc\'o en serie la l\'ampara incandescente y el amper\'imetro y conectados a estos en paralelo el volt\'imetro y la fuente de corriente continua (Figura \ref{fig:dsp_exp}).\par
 
-\begin{figure}
+\begin{figure}[h]
 \includegraphics[width=\linewidth]{dispositivo_experimental.jpg}
 \caption{Esquema del circuito realizado.}
 \label{fig:dsp_exp}
@@ -134,31 +134,27 @@ Se realizaron luego las mediciones, variando la diferencia de potencial de la fu
 %------------------------------------------------
 \section{Resultados y an\'alisis}
 
-Con los datos obtenidos se grafic\'o la diferencial de potencial registrada por el volt\'imetro en funci\'on de la intensidad. Luego se realizaron un ajuste lineal (Figura 2), uno de orden dos con el origen forzado (Figura 3), uno de orden dos con todos los par\'ametros libres (Figura 4) y finalmente uno de orden tres.
+Con los datos obtenidos se grafic\'o la diferencial de potencial registrada por el volt\'imetro en funci\'on de la intensidad. Luego se realizaron un ajuste lineal (Figura \ref{fig:line}), uno de orden dos con el origen forzado (Figura 3), uno de orden dos con los par\'ametros libres (Figura 4) y finalmente uno de orden tres.\par
 
-\subsection{Ajuste lineal}
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{fig_line.jpg}
+\caption{Ajuste lineal y sus residuos}
+\label{fig:line}
+\end{figure}
 
-\subsection{Ajuste polin\'omico de orden 2}
-
-\subsection{Ajuste polin\'omico de orden 3}
-
-
-
-\begin{table}
-\caption{Ajustes Realizados}
+\begin{table}[h]
 \centering
-\begin{tabular}{llr}
-\toprule
-\multicolumn{2}{c}{Ajuste polin\'omicos} \\
-\cmidrule(r){1-2}
-Orden 2 & Orden 3 & Lineal\\
-\midrule
-John & Doe & $7.5$ \\
-Richard & Miles & $2$ \\
-\bottomrule
+\caption{Ajuste lineal}
+\label{tab:line}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{$y(x)=a*x+b$}           \\ \hline
+b            & T-valor & a         & T-valor \\ \hline
+$-5.7\pm0.1$ & -45     & $128\pm1$ & 94      \\ \hline
 \end{tabular}
 \end{table}
 
+El ajuste lineal explica la mayor parte de los datos ($R^2=0.9974$), la media de los residuos es cero y el valor del test F es muy elevado ($F-valor=8778$), indicando que es poco probable que el ajuste lineal sea azaroso. Sin embargo, observando el gr\'afico de los residuos (Figura \ref{fig:line}) se puede ver que este modelo no es el m\'as ideal. De hecho es posible notar una fuerte dependencia, similar a una cuadr\'atica, de los residuos en func\'ion de la intensidad. Por este motivo se realz\'o el ajuste cuadr\'atico con la ordenada forzada en cero.\par
 
 %------------------------------------------------
 
