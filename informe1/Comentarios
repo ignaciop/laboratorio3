@@ -7,3 +7,6 @@ https://www.mathworks.com/help/physmod/elec/ref/incandescentlamp.html
 Donde la resistencia es lineal respecto a la diferencia de T con el exterior. Tiene sentido que la R sea lineal con un DeltaT porque justamente ajustamos con un polinomio de orden dos y el profe dijo que la R era la derivada de eso. Justamente la derivada de un orden dos es una función lineal.
 Ya orden 3 ajusta cualquier cosa el último parámetro (en comparación al orden 2).
 En fin, la basura que metí está en una branch con mi nombre.
+
+
+COMO ARREGLASTE LAS REFERENCIAS? A MI ME SIGUE SALIENDO [??]
