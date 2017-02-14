@@ -130,7 +130,7 @@ Para lograr hallar la resistencia de la l\'ampara incandescente fue necesario me
 \label{fig:dsp_exp}
 \end{figure}
 
-Se realizaron luego las mediciones, variando la diferencia de potencial de la fuente de corriente continua y tomando los datos de la corriente que pasaba por el amper\'imetro. Debido a que las mediciones se ve\'ian considerablemente afectadas por el ambiente externo (ya que la temperatura afectaba la resistencia, y por ende la corriente) fue necesario aislar de forma parcial a la l\'ampara del medio ambiente. Para ello se coloc\'o una cobertura pl\'astica que cubr\'ia a la misma. Luego, para cada medici\'on de intensidad se esper\'o a que se estabilizara la temperatura de la l\'ampara.
+Se realizaron luego las mediciones, variando la diferencia de potencial de la fuente de corriente continua y tomando los datos de la corriente que pasaba por el amper\'imetro. Debido a que las mediciones se ve\'ian considerablemente afectadas por el ambiente externo (ya que la temperatura afectaba la resistencia, y por ende la corriente) fue necesario aislar de forma parcial a la l\'ampara del medio ambiente. Para ello se coloc\'o una cobertura pl\'astica que cubr\'ia a la misma. Luego, para cada medici\'on de intensidad se esper\'o a que se estabilizara la temperatura de la l\'ampara.\par
 
 
 %------------------------------------------------
@@ -150,17 +150,54 @@ Con los datos obtenidos se grafic\'o la diferencial de potencial registrada por 
 \label{tab:line}
 \begin{tabular}{|c|c|c|c|}
 \hline
-\multicolumn{4}{|c|}{$y(x)=a*x+b$}           \\ \hline
-b            & T-valor & a         & T-valor \\ \hline
-$-5.7\pm0.1$ & -45     & $128\pm1$ & 94      \\ \hline
+\multicolumn{4}{|c|}{$y(x)=ax+b$}           \\ \hline
+b (V)        & T-valor & a($\Omega$) & T-valor \\ \hline
+$-5.7\pm0.1$ & -45     & $128\pm1$   & 94      \\ \hline
 \end{tabular}
 \end{table}
 
-El ajuste lineal explica la mayor parte de los datos ($R^2=0.9974$), la media de los residuos es cero y el valor del test F es muy elevado ($F-valor=8778$), indicando que es poco probable que el ajuste lineal sea azaroso. Sin embargo, observando el gr\'afico de los residuos (Figura \ref{fig:line}) se puede ver que este modelo no es el m\'as ideal. De hecho es posible notar una fuerte dependencia, similar a una cuadr\'atica, de los residuos en func\'ion de la intensidad. Por este motivo se realz\'o el ajuste cuadr\'atico con la ordenada forzada en cero.\par
+El ajuste lineal explica la mayor parte de los datos ($R^2=0.9974$), la media de los residuos es cero y el valor del test F es muy elevado ($F-valor=8778$), indicando que es poco probable que el ajuste lineal sea azaroso. Sin embargo, observando el gr\'afico de los residuos (Figura \ref{fig:line}) se puede ver que este modelo no es el m\'as ideal. De hecho es posible notar una fuerte dependencia, similar a una cuadr\'atica, de los residuos en func\'ion de la intensidad. Por este motivo se realz\'o el ajuste cuadr\'atico con la ordenada forzada en cero(Figura \ref{fig:o2cero}).\par
 
+\begin{table}[h]
+\centering
+\caption{Ajuste de orden dos, forzado}
+\label{tab:o20}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{$y(x)=ax^2+bx$}   \\ \hline
+b($\Omega$)& T-valor & a($\Omega/A$) & T-valor \\ \hline
+$6\pm2$	   & 3.6     & $600\pm17$    & 36     \\ \hline
+\end{tabular}
+\end{table}
 
+El ajuste de orden dos, con el cero forzado, da un $R^2=0.9990$, con lo cu\'al este modelo explica un poco m\'as que el anterior y dado el elevado valor del obtenido en el test F (F-valor=$12401$), es improbable que el ajuste fuera al azar. Sin embargo, el T-valor para el t\'ermino de primer orden dio relativamente bajo (Tabla \ref{tab:o20}). Adem\'as al observar los residuos en funci\'on de la intensidad, es posible ver una clara dependencia. Esto llev\'o a realizar un tercer ajuste, dejando libre todos los par\'ametros del polinomio de orden dos (Figura \ref{fig:o2}).\par
 
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{fig_o2cero.jpg}
+\label{fig:o2}
+\caption{Ajuste orden dos (cero forzado) y sus residuos}
+\label{fig:o2cero}
+\end{figure}
 
+El ajuste por medio de un polinomio de orden dos, con todos sus par\'ametros libres, posee un $R^2=0.99999$, esto quiere decir que este modelo explica casi en su totalidad los datos obtenido. Adem\'as posee un F-valor de 1E6, por lo que es muy improbable que este polinomio ajustara de forma aleatoria.\par
+
+\begin{table}[h!]
+\centering
+\caption{Ajuste orden dos}
+\label{tab:o2}
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|c|}{$y(x)=ax^2+bx+c$} \\ \hline
+c(V)           & $-3.22\pm0.04$        \\ \hline
+T-valor        & -90                   \\ \hline
+b($\Omega$)     & $74.0\pm0.8$          \\ \hline
+T-valor        & 98                    \\ \hline
+c($\Omega/A$)  & $270\pm4$             \\ \hline
+T-valor        & 71                    \\ \hline
+\end{tabular}
+\end{table}
+
+Los T-valores obtenidos para cada par\'ametro indican que todos ellos tienen una alta significancia. Por lo que es posible  
 
 %------------------------------------------------
 
