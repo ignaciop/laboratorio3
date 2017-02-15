@@ -1,0 +1,12 @@
+Varias cosas
+Al final no pude instalar spyder, porque cuando lo corría me tiraba un error. Se estaba abriendo, llegaba hasta "cargando editor" o algo así y tiraba un "python dejó de funcionar". Por lo tanto seguí todo en Origin y ya hice los ajustes.
+Otra cosa, es que nos mintió el profe, las lámparas incandescentes suelen estar hechas de materiales no ohmicos. 
+https://www.physicsforums.com/threads/incandescent-light-bulb-resistance-and-brightness.284581/
+Tal vez podríamos usar este modelo
+https://www.mathworks.com/help/physmod/elec/ref/incandescentlamp.html
+Donde la resistencia es lineal respecto a la diferencia de T con el exterior. Tiene sentido que la R sea lineal con un DeltaT porque justamente ajustamos con un polinomio de orden dos y el profe dijo que la R era la derivada de eso. Justamente la derivada de un orden dos es una función lineal.
+Ya orden 3 ajusta cualquier cosa el último parámetro (en comparación al orden 2).
+En fin, la basura que metí está en una branch con mi nombre.
+
+
+COMO ARREGLASTE LAS REFERENCIAS? A MI ME SIGUE SALIENDO [??]
