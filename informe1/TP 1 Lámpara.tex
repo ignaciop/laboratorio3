@@ -132,7 +132,7 @@ Para lograr hallar la resistencia de la l\'ampara incandescente fue necesario me
 
 Se realizaron luego las mediciones, variando la diferencia de potencial de la fuente de corriente continua y tomando los datos de la corriente que pasaba por el amper\'imetro. Debido a que las mediciones se ve\'ian considerablemente afectadas por el ambiente externo (ya que la temperatura afectaba la resistencia, y por ende la corriente) fue necesario aislar de forma parcial a la l\'ampara del medio ambiente. Para ello se coloc\'o una cobertura pl\'astica que cubr\'ia a la misma. Luego, para cada medici\'on de intensidad se esper\'o a que se estabilizara la temperatura de la l\'ampara.\par
 
-
+%------------------------------------------------
 %------------------------------------------------
 \section{Resultados y an\'alisis}
 
@@ -146,7 +146,7 @@ Con los datos obtenidos se grafic\'o la diferencial de potencial registrada por 
 
 \begin{table}[h]
 \centering
-\caption{Ajuste lineal}
+\caption{Par\'ametros del ajuste lineal}
 \label{tab:line}
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -156,11 +156,14 @@ $-5.7\pm0.1$ & -45     & $128\pm1$   & 94      \\ \hline
 \end{tabular}
 \end{table}
 
-El ajuste lineal explica la mayor parte de los datos ($R^2=0.9974$), la media de los residuos es cero y el valor del test F es muy elevado ($F-valor=8778$), indicando que es poco probable que el ajuste lineal sea azaroso. Sin embargo, observando el gr\'afico de los residuos (Figura \ref{fig:line}) se puede ver que este modelo no es el m\'as ideal. De hecho es posible notar una fuerte dependencia, similar a una cuadr\'atica, de los residuos en func\'ion de la intensidad. Por este motivo se realz\'o el ajuste cuadr\'atico con la ordenada forzada en cero(Figura \ref{fig:o2cero}).\par
+El ajuste lineal explica la mayor parte de los datos ($R^2=0.9974$), la media de los residuos es cero y el valor del test F es muy elevado ($F-valor=8778$), indicando que es poco probable que el ajuste lineal sea azaroso. Sin embargo, observando el gr\'afico de los residuos (Figura \ref{fig:line}) se puede ver que este modelo no es el m\'as ideal. De hecho es posible notar una fuerte dependencia, similar a una cuadr\'atica, de los residuos en func\'ion de la intensidad. Por estos motivo se realz\'o el ajuste cuadr\'atico con la ordenada forzada en cero(Figura \ref{fig:o2cero}).\par
+Adem\'as, considerando la Ley de Ohm, la ordenada al origen del ajuste lineal deber\'ia ser nula. Sin embargo no se observa este comportamiento y el T-valor (Tabla \ref{tab:line}) sugiere que la ordenada de hecho no es nula. Debido a esto, se podr\'ia considerar que en el caso de la l\'ampara incandescente, el modelo simple de la Ley de Ohm no es aplicable de forma directa, sino que habr\'a que considerar el efecto de la temperatura.
+
+%----------ORDEN 2 CERO FORZADO---------------
 
 \begin{table}[h]
 \centering
-\caption{Ajuste de orden dos, forzado}
+\caption{Par\'ametros del ajuste de orden dos con el cero forzado}
 \label{tab:o20}
 \begin{tabular}{|c|c|c|c|}
 \hline
@@ -170,20 +173,23 @@ $6\pm2$	   & 3.6     & $600\pm17$    & 36     \\ \hline
 \end{tabular}
 \end{table}
 
-El ajuste de orden dos, con el cero forzado, da un $R^2=0.9990$, con lo cu\'al este modelo explica un poco m\'as que el anterior y dado el elevado valor del obtenido en el test F (F-valor=$12401$), es improbable que el ajuste fuera al azar. Sin embargo, el T-valor para el t\'ermino de primer orden dio relativamente bajo (Tabla \ref{tab:o20}). Adem\'as al observar los residuos en funci\'on de la intensidad, es posible ver una clara dependencia. Esto llev\'o a realizar un tercer ajuste, dejando libre todos los par\'ametros del polinomio de orden dos (Figura \ref{fig:o2}).\par
+
 
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{fig_o2cero.jpg}
-\label{fig:o2}
 \caption{Ajuste orden dos (cero forzado) y sus residuos}
 \label{fig:o2cero}
 \end{figure}
+
+El ajuste de orden dos, con el cero forzado, da un $R^2=0.9990$, con lo cu\'al este modelo explica un poco m\'as que el anterior y dado el elevado valor del obtenido en el test F (F-valor=$12401$), es improbable que el ajuste fuera al azar. Sin embargo, el T-valor para el t\'ermino de primer orden dio relativamente bajo (Tabla \ref{tab:o20}). Adem\'as al observar los residuos en funci\'on de la intensidad, es posible ver una clara dependencia. Esto llev\'o a realizar un tercer ajuste, dejando libre todos los par\'ametros del polinomio de orden dos (Figura \ref{fig:o2}).\par
+
+%------------------ORDEN 2 LIBRE------------------------
 
 El ajuste por medio de un polinomio de orden dos, con todos sus par\'ametros libres, posee un $R^2=0.99999$, esto quiere decir que este modelo explica casi en su totalidad los datos obtenido. Adem\'as posee un F-valor de 1E6, por lo que es muy improbable que este polinomio ajustara de forma aleatoria.\par
 
 \begin{table}[h!]
 \centering
-\caption{Ajuste orden dos}
+\caption{Par\'ametros del ajuste de orden 2}
 \label{tab:o2}
 \begin{tabular}{|c|c|}
 \hline
@@ -192,13 +198,49 @@ c(V)           & $-3.22\pm0.04$        \\ \hline
 T-valor        & -90                   \\ \hline
 b($\Omega$)     & $74.0\pm0.8$          \\ \hline
 T-valor        & 98                    \\ \hline
-c($\Omega/A$)  & $270\pm4$             \\ \hline
+a($\Omega/A$)  & $270\pm4$             \\ \hline
 T-valor        & 71                    \\ \hline
 \end{tabular}
 \end{table}
 
-Los T-valores obtenidos para cada par\'ametro indican que todos ellos tienen una alta significancia. Por lo que es posible  
+Los T-valores obtenidos para cada par\'ametro indican que todos ellos tienen una alta significancia (Tabla \ref{tab:o2}). Es posible tambi\'en observar los residuos de este ajuste y notar que parecen ser independientes de la intensidad. Esto dar\'ia indicio de que el ajuste realizado es, en el rango de intensidades trabajados, un buen modelo para caracterizar el sistema.\par
 
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{fig_o2.jpg}
+\label{fig:o2}
+\caption{Ajuste orden dos y sus residuos}
+\end{figure}
+
+
+%----------------ORDEN 3-----------------------------
+
+El ajuste de orden tres tiene un gr\'afico similar al ajuste de orden dos y sus residuos tambi\'en son muy similares. El $R^2=0.99999$, como con el polinomio de orden dos por lo que ambos modelos explicaban el mismo porcentaje de los datos obtenidos. Su F=7E5, indicando como en el caso anterior que el hecho de que este ajuste sea aleatorio es improbable.\par
+
+Sin embargo al observar los T-valores (Tabla \ref{tab:o3})para los distintos par\'ametros se puede notar que en este tercer ajuste, estos fueron considerablemente peores que en el anterior. En particular para el coeficiente c\'ubico se observa un bajo T-valor, lo que indica que este tercer par\'ametro tiene una baja significancia. Esto nos permiti\'o concluir que de los modelos utilizados, el que mejor caracteriza al sistema estudiado de la l\'ampara es el polinomio de orden dos con sus par\'ametros libres.\par
+
+\begin{table}
+\centering
+\caption{Par\'ametros del ajuste de orden tres}
+\label{tab:o3}
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|c|}{$y(x)=ax^3+bx^2+cx+d$} \\ \hline
+d                  & $-3.0\pm0.2$           \\ \hline
+T-valor            & -19                    \\ \hline
+c                  & $68\pm5$               \\ \hline
+T-valor            & 13                     \\ \hline
+b                  & $328\pm51$             \\ \hline
+T-valor            & 7                      \\ \hline
+a                  & $-191\pm164$           \\ \hline
+T-valor            & -1.2                   \\ \hline
+\end{tabular}
+\end{table}
+
+
+
+
+
+%------------------------------------------------
 %------------------------------------------------
 
 \section{Conclusiones}
