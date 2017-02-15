@@ -101,7 +101,7 @@ R = \frac{V}{I}
 \label{eq:ohm2}
 V = IR
 \end{equation}
-\par En este trabajo veremos como var\'ia la resistencia de la l\'ampara incandescente en funci\'on de la intensidad de corriente circulando en el circuito; teniendo en cuenta la temperatura del filamento y la del ambiente.
+\par En este trabajo veremos como var\'ia la resistencia de la l\'ampara incandescente en funci\'on de la intensidad de corriente circulando en el circuito; teniendo en cuenta la temperatura del filamento y la del ambiente
 
 %------------------------------------------------
 
@@ -144,24 +144,108 @@ Con los datos obtenidos se grafic\'o la diferencial de potencial registrada por 
 
 \begin{table}[h]
 \centering
-\caption{Ajuste lineal}
+\caption{Par\'ametros del ajuste lineal}
 \label{tab:line}
 \begin{tabular}{|c|c|c|c|}
 \hline
-\multicolumn{4}{|c|}{$y(x)=a*x+b$}           \\ \hline
-b            & T-valor & a         & T-valor \\ \hline
-$-5.7\pm0.1$ & -45     & $128\pm1$ & 94      \\ \hline
+\multicolumn{4}{|c|}{$y(x)=ax+b$}           \\ \hline
+b (V)        & T-valor & a($\Omega$) & T-valor \\ \hline
+$-5.7\pm0.1$ & -45     & $128\pm1$   & 94      \\ \hline
 \end{tabular}
 \end{table}
 
-El ajuste lineal explica la mayor parte de los datos ($R^2=0.9974$), la media de los residuos es cero y el valor del test F es muy elevado ($F-valor=8778$), indicando que es poco probable que el ajuste lineal sea azaroso. Sin embargo, observando el gr\'afico de los residuos (Figura \ref{fig:line}) se puede ver que este modelo no es el m\'as ideal. De hecho es posible notar una fuerte dependencia, similar a una cuadr\'atica, de los residuos en func\'ion de la intensidad. Por este motivo se realiz\'o el ajuste cuadr\'atico con la ordenada forzada en cero.\par
+El ajuste lineal explica la mayor parte de los datos ($R^2=0.9974$), la media de los residuos es cero y el valor del test F es muy elevado ($F-valor=8778$), indicando que es poco probable que el ajuste lineal sea azaroso. Sin embargo, observando el gr\'afico de los residuos (Figura \ref{fig:line}) se puede ver que este modelo no es el m\'as ideal. De hecho es posible notar una fuerte dependencia, similar a una cuadr\'atica, de los residuos en func\'ion de la intensidad. Por estos motivo se realz\'o el ajuste cuadr\'atico con la ordenada forzada en cero(Figura \ref{fig:o2cero}).\par
+Adem\'as, considerando la Ley de Ohm, la ordenada al origen del ajuste lineal deber\'ia ser nula. Sin embargo no se observa este comportamiento y el T-valor (Tabla \ref{tab:line}) sugiere que la ordenada de hecho no es nula. Debido a esto, se podr\'ia considerar que en el caso de la l\'ampara incandescente, el modelo simple de la Ley de Ohm no es aplicable de forma directa, sino que habr\'a que considerar el efecto de la temperatura.
+
+%----------ORDEN 2 CERO FORZADO---------------
+
+\begin{table}[h]
+\centering
+\caption{Par\'ametros del ajuste de orden dos con el cero forzado}
+\label{tab:o20}
+\begin{tabular}{|c|c|c|c|}
+\hline
+\multicolumn{4}{|c|}{$y(x)=ax^2+bx$}   \\ \hline
+b($\Omega$)& T-valor & a($\Omega/A$) & T-valor \\ \hline
+$6\pm2$	   & 3.6     & $600\pm17$    & 36     \\ \hline
+\end{tabular}
+\end{table}
+
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{fig_o2cero.jpg}
+\caption{Ajuste orden dos (cero forzado) y sus residuos}
+\label{fig:o2cero}
+\end{figure}
+
+El ajuste de orden dos, con el cero forzado, da un $R^2=0.9990$, con lo cu\'al este modelo explica un poco m\'as que el anterior y dado el elevado valor del obtenido en el test F (F-valor=$12401$), es improbable que el ajuste fuera al azar. Sin embargo, el T-valor para el t\'ermino de primer orden dio relativamente bajo (Tabla \ref{tab:o20}). Adem\'as al observar los residuos en funci\'on de la intensidad, es posible ver una clara dependencia. Esto llev\'o a realizar un tercer ajuste, dejando libre todos los par\'ametros del polinomio de orden dos (Figura \ref{fig:o2}).\par
+
+%------------------ORDEN 2 LIBRE------------------------
+
+El ajuste por medio de un polinomio de orden dos, con todos sus par\'ametros libres, posee un $R^2=0.99999$, esto quiere decir que este modelo explica casi en su totalidad los datos obtenido. Adem\'as posee un F-valor de 1E6, por lo que es muy improbable que este polinomio ajustara de forma aleatoria.\par
+
+\begin{table}[h!]
+\centering
+\caption{Par\'ametros del ajuste de orden 2}
+\label{tab:o2}
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|c|}{$y(x)=ax^2+bx+c$} \\ \hline
+c(V)           & $-3.22\pm0.04$        \\ \hline
+T-valor        & -90                   \\ \hline
+b($\Omega$)     & $74.0\pm0.8$          \\ \hline
+T-valor        & 98                    \\ \hline
+a($\Omega/A$)  & $270\pm4$             \\ \hline
+T-valor        & 71                    \\ \hline
+\end{tabular}
+\end{table}
+
+
+Los T-valores obtenidos para cada par\'ametro indican que todos ellos tienen una alta significancia (Tabla \ref{tab:o2}). Es posible tambi\'en observar los residuos de este ajuste y notar que parecen ser independientes de la intensidad. Esto dar\'ia indicio de que el ajuste realizado es, en el rango de intensidades trabajados, un buen modelo para caracterizar el sistema.\par
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{fig_o2.jpg}
+\label{fig:o2}
+\caption{Ajuste orden dos y sus residuos}
+\end{figure}
+
+
+%----------------ORDEN 3-----------------------------
+
+El ajuste de orden tres tiene un gr\'afico similar al ajuste de orden dos y sus residuos tambi\'en son muy similares. El $R^2=0.99999$, como con el polinomio de orden dos por lo que ambos modelos explicaban el mismo porcentaje de los datos obtenidos. Su F=7E5, indicando como en el caso anterior que el hecho de que este ajuste sea aleatorio es improbable.\par
+
+Sin embargo al observar los T-valores (Tabla \ref{tab:o3})para los distintos par\'ametros se puede notar que en este tercer ajuste, estos fueron considerablemente peores que en el anterior. En particular para el coeficiente c\'ubico se observa un bajo T-valor, lo que indica que este tercer par\'ametro tiene una baja significancia. Esto nos permiti\'o concluir que de los modelos utilizados, el que mejor caracteriza al sistema estudiado de la l\'ampara es el polinomio de orden dos con sus par\'ametros libres.\par
+
+\begin{table}
+\centering
+\caption{Par\'ametros del ajuste de orden tres}
+\label{tab:o3}
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|c|}{$y(x)=ax^3+bx^2+cx+d$} \\ \hline
+d                  & $-3.0\pm0.2$           \\ \hline
+T-valor            & -19                    \\ \hline
+c                  & $68\pm5$               \\ \hline
+T-valor            & 13                     \\ \hline
+b                  & $328\pm51$             \\ \hline
+T-valor            & 7                      \\ \hline
+a                  & $-191\pm164$           \\ \hline
+T-valor            & -1.2                   \\ \hline
+\end{tabular}
+\end{table}
+
+De esta forma podemos informar la resistencia din\'amica como:
+\begin{equation}
+\label{eq:resdin}
+\frac{dV}{dI}=R(I)=(74.0\pm0.8)\Omega +(539\pm8)\frac{\Omega}{A}\cdot I
+\end{equation}
 
 %------------------------------------------------
 
 \section{Conclusiones}
 
 Comparando los valores obtenidos de la resistencia en los distintos ajustes (lineal, cuadr\'atico y c\'ubico), se encontr\'o que el modelo que mejor ajusta a los datos recolectados es el cuadr\'atico con origen forzado en cero. Esto esta de acuerdo con la bibliograf\'ia, ya que al ser el filamento de la l\'ampara incandescente un material no \'ohmico, su resistencia aumenta proporcionalmente con la ca\'ida de potencial debido al incremento de las colisiones entre las part\'iculas del filamento y los electrones al aumentar la temperatura de dicha resistencia (efecto Joule). En otras palabras, al aumentar la resistencia, se observa m\'as brillo en la l\'ampara.
-\par Para realizar mediciones confiables, hubo que esperar cierto tiempo a que la temperatura del filamento se estabilice. Tambi\'en se tuvo en cuenta que las mediciones pueden ser afectadas por las resistencias internas del amper\'imetro y volt\'imetro utilizados.
+\par 
+Para realizar mediciones confiables, hubo que esperar cierto tiempo a que la temperatura del filamento se estabilice. Tambi\'en se tuvo en cuenta que las mediciones pueden ser afectadas por las resistencias internas del amper\'imetro y volt\'imetro utilizados
 
 
 
