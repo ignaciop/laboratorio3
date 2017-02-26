@@ -118,7 +118,7 @@ $V_{D}$: Tension a trav\'es del diodo.
 \item 
 $I_{S}$: Intensidad de corriente de saturaci\'on que se establece al polarizar inversamente el diodo ($\sim 10^{-12}$ A).
 \item
-$V_{T}$: Tension t\'ermica ($\sim$ 25 mV a 25�C). Se define como $\frac{kT}{q}$, donde $k$ es la constante de Boltzmann, $T$ la temperatura y $q$ la carga del electr\'on.
+$V_{T}$: Tension t\'ermica ($\sim$ 25 mV a 25¼C). Se define como $\frac{kT}{q}$, donde $k$ es la constante de Boltzmann, $T$ la temperatura y $q$ la carga del electr\'on.
 \item
 $n$: Factor de calidad.  
 \end{itemize}
@@ -153,7 +153,41 @@ Los rectificadores de onda completa son m\'as complejos que los rectificadores d
 %------------------------------------------------
 
 \section{Dispositivo experimental}
+Los instrumentos de laboratorio utilizados fueron:
+\begin{itemize}
+\item 
+\label{diodo} Diodos Schottky (1N 4007 LD)%Estos son los diodos normales
+\item 
+\label{zener} Diodo Zener
+\item 
+\label{osc} Osciloscopio Tektronix 1052-B (R\'otulo: OSC-067) %el rótulo lo chamuye de otro experimento que hicimos porque no lo tenía, si alguien lo anoto, mejor
+\item
+\label{trans} Transformador conectado a l\'inea. 
+\item Resistencias varias
+\end{itemize}
 
+Para poder caracterizar el voltaje umbral del diodo, es necesario conocer la ca\'ida de potencial y la intensidad que pasan por el mismo. Con el objetivo de hallar estos datos se arm\'o el circuito que se muestra en la figura ~\ref{fig:dsp_exp}. Donde se utiliz\'o como volt\'imetro al osciloscopio y la fuente alterna, es el transformador conectado a l\'inea. 
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{disp_exp.png}
+\caption{Esquema del circuito realizado para la caracterizaci\'on del diodo.}
+\label{fig:dsp_exp}
+\end{figure}
+
+Para la segunda parte de la experiencia, se arm\'o un puente de diodos como el que se muestra en la figura \ref{fig:disp_exp2}. Esta vez, la parte del circuito de inter\'es fue c\'omo era el voltaje que pasaba por la resistencia de carga, por lo que se coloc\'o all\'i el osciloscopio y se observ\'o el voltaje en funci\'o del tiempo. Luego para una \'ultima experiencia se modifico levemente el circuito anterior, agregando un capactiro en paralelo a la resistencia de carga (figura ~\ref{fig:disp_exp3}), y se observ\'o all\'i que ocurr\'ia con la ca\'ida de potencial. 
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{disp_exp2.png}
+\caption{Esquema del circuito realizado del rectificador de onda completa}
+\label{fig:disp_exp2}
+\end{figure}
+
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{disp_exp3.png}
+\caption{Esquema del circuito realizado, agregando un capacitor al rectificador de onda completa.}
+\label{fig:disp_exp3}
+\end{figure}
 
 %------------------------------------------------
 \section{Resultados y an\'alisis}
