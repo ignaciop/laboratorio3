@@ -200,7 +200,7 @@ Para la segunda parte de la experiencia, se arm\'o un puente de diodos como el q
 
 \section{Resultados y an\'alisis}
 
-\subsection{Caracterizaci\'on del diodo Schotkky}
+\subsection{Caracterizaci\'on de diodos Schotkky y Zener}
 Lo primero que se puede apreciar en el osciloscopio es que la ca\'ida de potencial de la resistencia es nula cu\'ando la fuente de alterna tiene un potencial negativo, indicando que la corriente circulando por la resistencia era nula. Y cuando el voltaje entregado por la fuente es positivo, si se logra observar una diferencia de potencial no nula en la resistencia (figura ~\ref{diodo}). Por este motivo el nombre de esta configuraci\'on es rectificador de media onda, ya que "permite el paso de media onda". 
 
 \begin{figure}[h]
@@ -220,44 +220,46 @@ V_D=V-VR
 Siendo la resistencia utilizada en este circuito de unos $10 K\Omega$.
 \bigbreak
 
-Al graficar graficar la intensidad en funci\'on de la ca\'ida de potencial en el diodo, se puede observar que a voltajes negativos (polarizaci\'on inversa respecto al diodo) la intensidad es pr\'acticamente nula, mientras que luego de pasar una cierta tensi\'on umbral, $V_u$, el diodo se comporta casi como un conductor, aumentando la corriente que pasa por este de forma considerable (figura ~\ref{fig:diodo_shock}. La determinaci\'on de dicho $V_u$ es arbitraria, pero se suele tomar como criterio, el voltaje al cu\'al la intensidad es de 1mA. Ajustando la curva obtenida con el modelo de Shockley los par\'ametros obtenidos se muestran en la tabla ~\ref{tab:diodo}. 
+Al graficar graficar la intensidad en funci\'on de la ca\'ida de potencial en el diodo, se puede observar que a voltajes negativos (polarizaci\'on inversa respecto al diodo) la intensidad es pr\'acticamente nula, mientras que luego de pasar una cierta tensi\'on umbral, $V_u$, el diodo se comporta casi como un conductor, aumentando la corriente que pasa por este de forma considerable (figura ~\ref{fig:diodo_shock}. Se hice hizo un ligero cambio respecto al modelo de Shockley original, que fue denominar a $V_T . n = V_{Teff}$ ya que al realizar el ajuste, estos dos par\'ametros son indistinguibles.
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \includegraphics[width=\linewidth]{diodograph.jpg}
 \captionsetup{justification=centering}
+\setlength{\belowcaptionskip}{-10pt}
 \caption{Gr\'afico de la intensidad circulante por el diodo en funci\'on de su ca\'ida de potencial.}
 \label{fig:diodo_shock}
 \end{figure}
 
-\begin{table}[h]
+La determinaci\'on de dicho $V_u$ es arbitraria, pero se suele tomar como criterio, el voltaje al cu\'al la intensidad es de 1mA. Ajustando la curva obtenida con el modelo de Shockley los par\'ametros obtenidos se muestran en la tabla ~\ref{tab:diodo}. Se estima entonces, con los par\'ametros obtenidos del modelo que $V_u\approx0.6V$. Cabe destacar que esta es s\'olo una estimaci\'on ya que el alto error en el par\'ametro $I_S$ no permiti\'o obtener este valor con exactitud. El $R^2$ no es muy favorable, con lo que muchos datos no son explicados correctamente por el modelo, pero el alto valor obtenido del F-valor indica que es improbable que el ajuste haya sido aleatorio. El modelo utilizado tuvo una gran complicaci\'on para ajustar los datos, debido a que este era muy sensible a los valores del $V_D$ en cu\'anto comenzaba el crecimiento exponencial. \par 
+
+\begin{table}[h!]
 \centering
 \captionsetup{justification=centering}
+\setlength{\belowcaptionskip}{-10pt}
 \caption{Ajuste de Shockley}
 \label{tab:diodo}
 \begin{tabular}{|c|c|}
 \hline
-\multicolumn{2}{|c|}{$I(V_d)=I\_S . (1-e\textasciicircum \frac\{V\_D\}\{V\_\{Teff\}\}-1)$} \\ \hline
-I\_S                                       & $5E-11\pm2E-9$                               \\ \hline
-V\_\{Teff\}                                & $0.040\pm0.006$                               \\ \hline
-$R^2$                                      & 0.5                                           \\ \hline
-F-valor                                    & 2700                                          \\ \hline
+\multicolumn{2}{|c|}{$I(V_d)=I_S . (e^\frac{V_D}{V_{Tee}}-1)$} \\ \hline
+$I_S$                       & $5E-11\pm2E-9$                   \\ \hline
+$V_{Teff}$                  & $0.040\pm0.006$                  \\ \hline
+$R^2$                       & 0.5                              \\ \hline
+F-valor                     & 2700                             \\ \hline
 \end{tabular}
 \end{table}
 
-Se estima entonces, con los par\'ametros obtenidos del modelo que $V_u\approx0.6V$. Cabe destacar que esta es s\'olo una estimaci\'on ya que el alto error en el par\'ametro $I_S$ no permiti\'o obtener este valor con exactitud. El $R^2$ no es muy favorable, con lo que muchos datos no son explicados correctamente por el modelo, pero el alto valor obtenido del F-valor indica que es improbable que el ajuste haya sido aleatorio. El modelo utilizado tuvo una gran complicaci\'on para ajustar los datos, debido a que este era muy sensible a los valores del $V_D$ en cu\'anto comenzaba el crecimiento exponencial. \par 
 En el gr\'afico de los residuos se puede ver que estos est\'an discretizados debido a la digitalizaci\'on del instrumental utilizado. En general se observa que para valores bajos, las desviaciones son negativas, y se llega a observar que en los \'ultimos valores, donde se observa el comportamiento exponencial del ajuste, los residuos aumentan (figura ~\ref{fig:res}).
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \includegraphics[width=\linewidth]{residuos.jpg}
 \captionsetup{justification=centering}
 \caption{Gr\'afico de los residuos obtenidos por el ajuste con el model de Schottky.}
 \label{fig:res}
 \end{figure} 
 
+
 %------------------------------------------------
-
-\subsection{Caracterizaci\'on del diodo Zener}
-
+\subsection{Rectificadores de onda completa y observaci\'on del Ripple}
 
 
 
