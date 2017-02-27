@@ -1,0 +1,288 @@
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass[twoside,twocolumn,a4paper]{article}
+
+\usepackage{blindtext} % Package to generate dummy text throughout this template 
+
+\usepackage[T1]{fontenc} % Use 8-bit encoding that has 256 glyphs
+
+\usepackage{lmodern}
+
+\usepackage[hyphenbreaks]{breakurl}
+
+\usepackage[hyphens]{url}
+
+%\usepackage[super,sort&compress]{natbib}
+%\usepackage{natbib}
+%\setlength{\bibsep}{0.0pt}
+
+
+\usepackage{graphicx} %figuras
+\usepackage{amsmath} %me deja usar ecuaciones como la gente
+
+\linespread{1.05} % Line spacing - Palatino needs more space between lines
+\usepackage{microtype} % Slightly tweak font spacing for aesthetics
+
+\usepackage[spanish]{babel} % Language hyphenation and typographical rules
+
+\usepackage[numbib,notlof,notlot,nottoc]{tocbibind} % Shows bibliography as a section
+
+\usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
+
+\usepackage[small,labelfont=bf,up,textfont=up]{caption} % Custom captions under/above floats in tables or figures
+
+\usepackage{booktabs} % Horizontal rules in tables
+
+\usepackage{enumitem} % Customized lists
+
+\setlist[itemize]{noitemsep} % Make itemize lists more compact
+
+\usepackage{abstract} % Allows abstract customization
+
+\renewcommand{\abstractnamefont}{\normalfont\bfseries} % Set the "Abstract" text to bold
+
+\usepackage{fancyhdr} % Headers and footers
+\pagestyle{fancy} % All pages have headers and footers
+\fancyhead{} % Blank out the default header
+\fancyfoot{} % Blank out the default footer
+\fancyhead[C]{Laboratorio 3 $\bullet$ Informe 2 $\bullet$ Grupo 8: Inafuku, Petino, Poggi} % Custom header text
+\fancyfoot[C]{\thepage} % Custom footer text
+
+\usepackage{titling} % Customizing the title section
+
+\usepackage{hyperref} % For hyperlinks in the PDF
+
+%----------------------------------------------------------------------------------------
+%	TITLE SECTION
+%----------------------------------------------------------------------------------------
+
+\setlength{\droptitle}{-4\baselineskip} % Move the title up
+
+\pretitle{\begin{center}\LARGE\bfseries} % Article title formatting
+\posttitle{\end{center}} % Article title closing formatting
+\title{Caracterizaci\'on de diodos. Rectificadores de media y onda completa.} % Article title
+\author{%
+\textsc{Maximiliano Inafuku} \\[1ex] % Your name
+\normalsize \href{mailto:maxi-46@hotmail.com}{maxi-46@hotmail.com} % Your email address
+\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
+\textsc{Ernesto Petino} \\[1ex] % Second author's name
+\normalsize \href{mailto:ernesto.atmo@gmail.com}{ernesto.atmo@gmail.com} % Second author's email address
+\and % Uncomment if 2 authors are required, duplicate these 4 lines if more
+\textsc{Ignacio Poggi} \\[1ex] % Second author's name
+\normalsize \href{mailto:ignaciop.3@gmail.com}{ignaciop.3@gmail.com} % Second author's email address
+}
+
+\date{Grupo 8 - Laboratorio 3, C\'atedra Bilbao - Departamento de F\'isica, Facultad de Ciencias Exactas y Naturales, Universidad de Buenos Aires \newline \\ \today} % Leave empty to omit a date
+\renewcommand{\maketitlehookd}{%
+\begin{abstract}
+\noindent En este trabajo se arm\'o un circuito electr\'onico simple para medir la resistencia de una l\'ampara incandescente. Se analizaron los datos obtenidos con el programa Origin 8.5 y se realizaron ajustes lineal, cuadr\'atico y c\'ubico. Se encontr\'o que el mejor ajuste para los datos obtenidos es el cuadr\'atico con sus par\'ametros libres ($R^2$ = 0,99999), dado que la resistencia de la l\'ampara se ve afectada por la intensidad de corriente que la atraviesa, as\'i como tambi\'en la temperatura de su filamento y la del ambiente.
+\end{abstract}
+}
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+% Print the title
+\maketitle
+
+%----------------------------------------------------------------------------------------
+%	ARTICLE CONTENTS
+%----------------------------------------------------------------------------------------
+
+\section{Introducci\'on}
+
+El diodo es un dispositivo de dos terminales que permite el paso de la corriente en una sola direcci\'on. Los m\'as utilizados actualmente son los diodos semiconductores y Zener (Figura \ref{fig:tipos_diodos}).\par
+
+Cuando se somete al diodo semiconductor a una diferencia de tensi\'on externa, puede polarizarse de forma directa o inversa. En la polarizaci\'on directa, la bater\'ia disminuye la barrera de potencial, permitiendo el paso de la corriente de electrones a trav\'es de la uni\'on; es decir, el diodo polarizado directamente funciona como un conductor, cuando se supera un cierto voltaje umbral. En el caso de la polarizaci\'on inversa, el polo negativo de la bater\'ia se conecta a la zona p y el polo positivo a la zona n, lo que hace aumentar la zona de carga, y la tensi\'on en dicha zona hasta que se alcanza el valor de la tensi\'on de la bater\'ia. \par
+
+Otro tipo de diodo estudiado es el diodo Zener. Estos se emplean para producir una tensi\'on entre sus terminales muy constante y relativamente independiente de la corriente que los atraviesan. Normalmente, polarizados en forma inversa no permite pr\'acticamente el pasaje de corriente, pero al alcanzar una determinada tensi\'on (tensi\'on Zener), se produce un aumento de la cantidad de corriente que lo atraviesa, manteniendo la tensi\'on entre sus terminales pr\'acticamente constante.
+
+\begin{figure}[h]
+\captionsetup{justification=centering}
+\includegraphics[width=\linewidth]{tipos_diodos.jpg}
+\caption{Clases de diodos estudiados. De arriba hacia abajo: diagrama de un diodo, diodo semiconductor y diodo Zener.}
+\label{fig:tipos_diodos}
+\end{figure}
+
+El modelo utilizado para caracterizar al diodo es el de Shockley, el cual permite aproximar el comportamiento del mismo en la mayor\'ia de los circuitos. La ecuaci\'on que relaciona la intensidad de corriente y la diferencia de potencial es \cite{eq:shockley}:
+\begin{equation}
+\label{eq:shockley}
+I = I_{S}(e^\frac{V_{D}}{nV_{T}} - 1)
+\end{equation}
+
+donde
+
+\begin{itemize}
+\item 
+$V_{D}$: Tension a trav\'es del diodo. 
+\item 
+$I_{S}$: Intensidad de corriente de saturaci\'on que se establece al polarizar inversamente el diodo ($\sim 10^{-12}$ A).
+\item
+$V_{T}$: Tension t\'ermica ($\sim$ 25 mV a 25¼C). Se define como $\frac{kT}{q}$, donde $k$ es la constante de Boltzmann, $T$ la temperatura y $q$ la carga del electr\'on.
+\item
+$n$: Factor de calidad.
+\end{itemize}
+
+La ecuaci\'on (\ref{eq:shockley}) da lugar a una curva caracter\'istica (Figura \ref{fig:curva_shockley}) con los siguientes par\'ametros:
+
+\begin{itemize}
+\item 
+$V_{u}$: Tensi\'on umbral. Al polarizar directamente el diodo, la barrera de potencial inicial se va reduciendo, incrementando la corriente ligeramente. Sin embargo, cuando la tensi\'on externa supera la tensi\'on umbral, la barrera de potencial desaparece.
+\item 
+$I_{max}$: Intensidad de corriente m\'axima que puede conducir el diodo sin fundirse.
+\item
+$V_{r}$: Tensi\'on de ruptura. A partir de un determinado valor de la tensi\'on, el diodo comienza a conducir tambi\'en en polarizaci\'on inversa. 
+\end{itemize}
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{curva_shockley.jpg}
+\captionsetup{justification=centering}
+\caption{Curva caracter\'istica de un diodo seg\'un el modelo de Shockley.}
+\label{fig:curva_shockley}
+\end{figure}
+
+
+\textbf{Rectificadores de media onda y onda completa.} \newline
+\par
+Los rectificadores el\'ectricos son los circuitos encargados de convertir la corriente alterna en corriente continua. Los m\'as habituales son los construidos con diodos. Los dos tipos de rectificadores estudiados en este trabajo son los rectificadores de media onda y los rectificadores de onda completa. \par
+
+Los rectificadores de media onda funcionan haciendo pasar la mitad de la corriente alterna a trav\'es de uno o m\'as diodos, convirtiendo en este paso dicha mitad de la corriente alterna en corriente el\'ectrica directa. Estos rectificadores no son muy eficientes porque s\'olo convierten la mitad de la corriente alterna en corriente directa; por lo tanto, solo un diodo es necesario para su funcionamiento.\par
+
+Los rectificadores de onda completa son m\'as complejos que los rectificadores de media onda, pero tambi\'en son mucho m\'as eficientes. Estos generalmente utilizan cuatro diodos para funcionar (puente de diodos), haciendo pasar la corriente alterna a trav\'es de dicho puente, obteniendo un terminal positivo y otro negativo, caracter\'istico de la corriente directa.
+
+
+%------------------------------------------------
+
+\section{Dispositivo experimental}
+Los instrumentos de laboratorio utilizados fueron:
+\begin{itemize}
+\item 
+\label{diodo} Diodos Schottky (1N 4007 LD)%Estos son los diodos normales
+\item 
+\label{zener} Diodo Zener
+\item 
+\label{osc} Osciloscopio Tektronix 1052-B (R\'otulo: OSC-067) %el rótulo lo chamuye de otro experimento que hicimos porque no lo tenía, si alguien lo anoto, mejor
+\item
+\label{trans} Transformador conectado a l\'inea. 
+\item Resistencias varias
+\end{itemize}
+
+Para poder caracterizar el voltaje umbral del diodo, es necesario conocer la ca\'ida de potencial y la intensidad que pasan por el mismo. Con el objetivo de hallar estos datos se arm\'o el circuito que se muestra en la Figura \ref{fig:dsp_exp}, donde se utiliz\'o como volt\'imetro al osciloscopio y la fuente alterna, es el transformador conectado a l\'inea. 
+
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{disp_exp.png}
+\captionsetup{justification=centering}
+\caption{Esquema del circuito realizado para la caracterizaci\'on del diodo.}
+\label{fig:dsp_exp}
+\end{figure}
+
+Para la segunda parte de la experiencia, se arm\'o un puente de diodos como el que se muestra en la Figura \ref{fig:disp_exp2}. Esta vez, la parte del circuito de inter\'es fue c\'omo era el voltaje que pasaba por la resistencia de carga, por lo que se coloc\'o all\'i el osciloscopio y se observ\'o el voltaje en funci\'o del tiempo. Luego para una \'ultima experiencia se modific\'o levemente el circuito anterior, agregando un capacitor en paralelo a la resistencia de carga (Figura \ref{fig:disp_exp3}), y se observ\'o all\'i que ocurr\'ia con la ca\'ida de potencial. 
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{disp_exp2.png}
+\captionsetup{justification=centering}
+\caption{Esquema del circuito realizado del rectificador de onda completa.}
+\label{fig:disp_exp2}
+\end{figure}
+
+\begin{figure}[h!]
+\includegraphics[width=\linewidth]{disp_exp3.png}
+\captionsetup{justification=centering}
+\caption{Esquema del circuito realizado, agregando un capacitor al rectificador de onda completa.}
+\label{fig:disp_exp3}
+\end{figure}
+
+%------------------------------------------------
+%------------------------------------------------
+
+\section{Resultados y an\'alisis}
+
+\subsection{Caracterizaci\'on del diodo Schotkky}
+Lo primero que se puede apreciar en el osciloscopio es que la ca\'ida de potencial de la resistencia es nula cu\'ando la fuente de alterna tiene un potencial negativo, indicando que la corriente circulando por la resistencia era nula. Y cuando el voltaje entregado por la fuente es positivo, si se logra observar una diferencia de potencial no nula en la resistencia (figura ~\ref{diodo}). Por este motivo el nombre de esta configuraci\'on es rectificador de media onda, ya que "permite el paso de media onda". 
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{Diodo.jpg}
+\captionsetup{justification=centering}
+\caption{Captura de pantalla obtenida por el osciloscopio, con el diodo Schottky. En amarillo la ca\'ida de potencial de la resistencia y en azul el voltaje entregado por la fuente alterna}
+\label{fig:diodo}
+\end{figure}
+
+Con los datos de la ca\'ida de potencial en la resistencia y el voltaje otorgado por el transformador conectado a la red de l\'inea se obtuvieron la intensidad que circulaba por el diodo y la ca\'ida de potencial del mismo por medio de las ecuaciones:
+
+\begin{gather}
+I=\frac{V_R}{R} \\
+V_D=V-VR
+\end{gather}
+
+Siendo la resistencia utilizada en este circuito de unos $10 K\Omega$.
+\bigbreak
+
+Al graficar graficar la intensidad en funci\'on de la ca\'ida de potencial en el diodo, se puede observar que a voltajes negativos (polarizaci\'on inversa respecto al diodo) la intensidad es pr\'acticamente nula, mientras que luego de pasar una cierta tensi\'on umbral, $V_u$, el diodo se comporta casi como un conductor, aumentando la corriente que pasa por este de forma considerable (figura ~\ref{fig:diodo_shock}. La determinaci\'on de dicho $V_u$ es arbitraria, pero se suele tomar como criterio, el voltaje al cu\'al la intensidad es de 1mA. Ajustando la curva obtenida con el modelo de Shockley los par\'ametros obtenidos se muestran en la tabla ~\ref{tab:diodo}. 
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{diodograph.jpg}
+\captionsetup{justification=centering}
+\caption{Gr\'afico de la intensidad circulante por el diodo en funci\'on de su ca\'ida de potencial.}
+\label{fig:diodo_shock}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\captionsetup{justification=centering}
+\caption{Ajuste de Shockley}
+\label{tab:diodo}
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|c|}{$I(V_d)=I\_S . (1-e\textasciicircum \frac\{V\_D\}\{V\_\{Teff\}\}-1)$} \\ \hline
+I\_S                                       & $5E-11\pm2E-9$                               \\ \hline
+V\_\{Teff\}                                & $0.040\pm0.006$                               \\ \hline
+$R^2$                                      & 0.5                                           \\ \hline
+F-valor                                    & 2700                                          \\ \hline
+\end{tabular}
+\end{table}
+
+Se estim\'o entonces que el $V_u\approx0.6V$, cabe destacar que esta es s\'olo una estimaci\'on ya que el alto error en el par\'ametro $I_S$ no permiti\'o obtener este valor con exactitud. El $R^2$ no es muy favorable, con lo que muchos datos no son explicados correctamente por el modelo, pero el alto valor obtenido del F-valor indica que es improbable que el ajuste haya sido aleatorio. El modelo utilizado tuvo una gran complicaci\'on para ajustar los datos, debido a que cambios este era muy sensible a los valores del $V_D$ en cu\'anto comenzaba el crecimiento exponencial. \par 
+En el gr\'afico de los residuos se puede ver que estos est\'an discretizados debido a la digitalizaci\'on del instrumental utilizado. En general se observa que para valores bajos, las desviaciones son negativas, y se llega a observar que en los \'ultimos valores, donde se observa el comportamiento exponencial del ajuste, los residuos aumentan (figura ~\ref{fig:res}).
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{residuos.jpg}
+\captionsetup{justification=centering}
+\caption{Gr\'afico de los residuos obtenidos por el ajuste con el model de Schottky.}
+\label{fig:res}
+\end{figure} 
+
+%------------------------------------------------
+
+\subsection{Caracterizaci\'on del diodo Schotkky}
+
+
+
+
+%------------------------------------------------
+%------------------------------------------------
+
+
+\section{Conclusiones}
+
+
+%----------------------------------------------------------------------------------------
+%	REFERENCE LIST
+%----------------------------------------------------------------------------------------
+
+\begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
+
+\bibitem{eq:potencial} E. M. Purcell, \textit{Electricidad y Magnetismo - Berkeley Physics Course Vol. 2}, Editorial Revert\'e S.A., 2da edici\'on, Barcelona (1988), p\'ag. 124
+\bibitem{eq:ohm1} E. M. Purcell, \textit{Electricidad y Magnetismo - Berkeley Physics Course Vol. 2}, Editorial Revert\'e S.A., 2da edici\'on, Barcelona (1988), p\'ag. 124
+\bibitem{eq:ohm2} E. M. Purcell, \textit{Electricidad y Magnetismo - Berkeley Physics Course Vol. 2}, Editorial Revert\'e S.A., 2da edici\'on, Barcelona (1988), p\'ag. 123
+\bibitem{Fuente} \url{http://goo.gl/lu3XiA}
+\bibitem{amp} \url{http://goo.gl/hgNeqO}
+\bibitem{volt} \url{http://goo.gl/BlIRc2}
+ 
+\end{thebibliography}
+
+%----------------------------------------------------------------------------------------
+
+\end{document}
