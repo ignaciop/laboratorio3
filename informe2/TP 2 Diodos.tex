@@ -18,9 +18,13 @@
 %\usepackage{natbib}
 %\setlength{\bibsep}{0.0pt}
 
-
+\usepackage{float} %Latex toma a las figuras como "floats" esto quiere decir que se ponen donde se les canta el orto, este paquete impide que las figuras hagan lo que quieran.
 \usepackage{graphicx} %figuras
 \usepackage{amsmath} %me deja usar ecuaciones como la gente
+\usepackage{titlesec} %PERMITE CAMBIAR EL FUCKING TAMAÑO DE LOS TITULOS Y SUBTITULOS DESPUES DE 2HS DE BUSQUEDA DE COMO MIERDA HACERLO
+\titleformat{\subsection}
+{\normalfont\small\bfseries}{\thesubsection}{1em}{}
+
 
 \linespread{1.05} % Line spacing - Palatino needs more space between lines
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
@@ -87,6 +91,7 @@
 
 % Print the title
 \maketitle
+
 
 %----------------------------------------------------------------------------------------
 %	ARTICLE CONTENTS
@@ -168,11 +173,12 @@ Los instrumentos de laboratorio utilizados fueron:
 \item
 \label{trans} Transformador conectado a l\'inea. 
 \item Resistencias varias
+\item Capacitores varios
 \end{itemize}
 
-Para poder caracterizar el voltaje umbral del diodo, es necesario conocer la ca\'ida de potencial y la intensidad que pasan por el mismo. Con el objetivo de hallar estos datos se arm\'o el circuito que se muestra en la Figura \ref{fig:dsp_exp}, donde se utiliz\'o como volt\'imetro al osciloscopio y la fuente alterna, es el transformador conectado a l\'inea. 
+Para poder caracterizar el voltaje umbral del diodo, es necesario conocer la ca\'ida de potencial y la intensidad que pasan por el mismo. Con el objetivo de hallar estos datos se arm\'o el circuito que se muestra en la Figura \ref{fig:dsp_exp}, donde se utiliz\'o como volt\'imetro al osciloscopio y la fuente alterna, es el transformador conectado a l\'inea. Esta configuraci\'on fue la misma tanto para la caracterizaci\'on del Schottky como la del diodo Zener. Los datos se recogieron en la computadora conectando el osciloscopio a la misma por medio de un USB y se utiliz\'o el programa OpenChoice Desktop. 
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \includegraphics[width=\linewidth]{disp_exp.png}
 \captionsetup{justification=centering}
 \caption{Esquema del circuito realizado para la caracterizaci\'on del diodo.}
@@ -201,6 +207,7 @@ Para la segunda parte de la experiencia, se arm\'o un puente de diodos como el q
 \section{Resultados y an\'alisis}
 
 \subsection{Caracterizaci\'on de diodos Schotkky y Zener}
+
 Lo primero que se puede apreciar en el osciloscopio es que la ca\'ida de potencial de la resistencia es nula cu\'ando la fuente de alterna tiene un potencial negativo, indicando que la corriente circulando por la resistencia era nula. Y cuando el voltaje entregado por la fuente es positivo, si se logra observar una diferencia de potencial no nula en la resistencia (figura ~\ref{diodo}). Por este motivo el nombre de esta configuraci\'on es rectificador de media onda, ya que "permite el paso de media onda". 
 
 \begin{figure}[h]
@@ -225,7 +232,6 @@ Al graficar graficar la intensidad en funci\'on de la ca\'ida de potencial en el
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{diodograph.jpg}
 \captionsetup{justification=centering}
-\setlength{\belowcaptionskip}{-10pt}
 \caption{Gr\'afico de la intensidad circulante por el diodo en funci\'on de su ca\'ida de potencial.}
 \label{fig:diodo_shock}
 \end{figure}
@@ -235,7 +241,7 @@ La determinaci\'on de dicho $V_u$ es arbitraria, pero se suele tomar como criter
 \begin{table}[h!]
 \centering
 \captionsetup{justification=centering}
-\setlength{\belowcaptionskip}{-10pt}
+%\setlength{\belowcaptionskip}{-10pt} Esto saca el espacio debajo de las caption
 \caption{Ajuste de Shockley}
 \label{tab:diodo}
 \begin{tabular}{|c|c|}
@@ -250,7 +256,7 @@ F-valor                     & 2700                             \\ \hline
 
 En el gr\'afico de los residuos se puede ver que estos est\'an discretizados debido a la digitalizaci\'on del instrumental utilizado. En general se observa que para valores bajos, las desviaciones son negativas, y se llega a observar que en los \'ultimos valores, donde se observa el comportamiento exponencial del ajuste, los residuos aumentan (figura ~\ref{fig:res}).
 
-\begin{figure}[h!]
+\begin{figure}[H]
 \includegraphics[width=\linewidth]{residuos.jpg}
 \captionsetup{justification=centering}
 \caption{Gr\'afico de los residuos obtenidos por el ajuste con el model de Schottky.}
@@ -260,6 +266,15 @@ En el gr\'afico de los residuos se puede ver que estos est\'an discretizados deb
 
 %------------------------------------------------
 \subsection{Rectificadores de onda completa y observaci\'on del Ripple}
+En esta segunda parte del experimento se realiz\'o un an\'alisis m\'as bien cualitativo de un rectificador de onda completa y del fen\'omeno del Ripple. Se arm\'o entonces el puente de diodos y se observ\'o en el osciloscopio como variaba la ca\'ida de potencial en funci\'on del tiempo (figura \ref{fig:noripple}).
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{noripple.jpg}
+\captionsetup{justification=centering}
+\caption{Rectificador de onda completa}
+\label{fig:noripple}
+\end{figure} 
+
 
 
 
