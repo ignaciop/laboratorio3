@@ -18,7 +18,9 @@
 %\usepackage{natbib}
 %\setlength{\bibsep}{0.0pt}
 
-\usepackage{graphicx}
+
+\usepackage{graphicx} %figuras
+\usepackage{amsmath} %me deja usar ecuaciones como la gente
 
 \linespread{1.05} % Line spacing - Palatino needs more space between lines
 \usepackage{microtype} % Slightly tweak font spacing for aesthetics
@@ -29,7 +31,7 @@
 
 \usepackage[hmarginratio=1:1,top=32mm,columnsep=20pt]{geometry} % Document margins
 
-\usepackage[hang, small,labelfont=bf,up,textfont=up]{caption} % Custom captions under/above floats in tables or figures
+\usepackage[small,labelfont=bf,up,textfont=up]{caption} % Custom captions under/above floats in tables or figures
 
 \usepackage{booktabs} % Horizontal rules in tables
 
@@ -99,6 +101,7 @@ Cuando se somete al diodo semiconductor a una diferencia de tensi\'on externa, p
 Otro tipo de diodo estudiado es el diodo Zener. Estos se emplean para producir una tensi\'on entre sus terminales muy constante y relativamente independiente de la corriente que los atraviesan. Normalmente, polarizados en forma inversa no permite pr\'acticamente el pasaje de corriente, pero al alcanzar una determinada tensi\'on (tensi\'on Zener), se produce un aumento de la cantidad de corriente que lo atraviesa, manteniendo la tensi\'on entre sus terminales pr\'acticamente constante.
 
 \begin{figure}[h]
+\captionsetup{justification=centering}
 \includegraphics[width=\linewidth]{tipos_diodos.jpg}
 \caption{Clases de diodos estudiados. De arriba hacia abajo: diagrama de un diodo, diodo semiconductor y diodo Zener.}
 \label{fig:tipos_diodos}
@@ -120,7 +123,7 @@ $I_{S}$: Intensidad de corriente de saturaci\'on que se establece al polarizar i
 \item
 $V_{T}$: Tension t\'ermica ($\sim$ 25 mV a 25¼C). Se define como $\frac{kT}{q}$, donde $k$ es la constante de Boltzmann, $T$ la temperatura y $q$ la carga del electr\'on.
 \item
-$n$: Factor de calidad.  
+$n$: Factor de calidad.
 \end{itemize}
 
 La ecuaci\'on (\ref{eq:shockley}) da lugar a una curva caracter\'istica (Figura \ref{fig:curva_shockley}) con los siguientes par\'ametros:
@@ -136,6 +139,7 @@ $V_{r}$: Tensi\'on de ruptura. A partir de un determinado valor de la tensi\'on,
 
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{curva_shockley.jpg}
+\captionsetup{justification=centering}
 \caption{Curva caracter\'istica de un diodo seg\'un el modelo de Shockley.}
 \label{fig:curva_shockley}
 \end{figure}
@@ -168,8 +172,9 @@ Los instrumentos de laboratorio utilizados fueron:
 
 Para poder caracterizar el voltaje umbral del diodo, es necesario conocer la ca\'ida de potencial y la intensidad que pasan por el mismo. Con el objetivo de hallar estos datos se arm\'o el circuito que se muestra en la Figura \ref{fig:dsp_exp}, donde se utiliz\'o como volt\'imetro al osciloscopio y la fuente alterna, es el transformador conectado a l\'inea. 
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \includegraphics[width=\linewidth]{disp_exp.png}
+\captionsetup{justification=centering}
 \caption{Esquema del circuito realizado para la caracterizaci\'on del diodo.}
 \label{fig:dsp_exp}
 \end{figure}
@@ -178,21 +183,87 @@ Para la segunda parte de la experiencia, se arm\'o un puente de diodos como el q
 
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{disp_exp2.png}
+\captionsetup{justification=centering}
 \caption{Esquema del circuito realizado del rectificador de onda completa.}
 \label{fig:disp_exp2}
 \end{figure}
 
-
-\begin{figure}[h]
+\begin{figure}[h!]
 \includegraphics[width=\linewidth]{disp_exp3.png}
+\captionsetup{justification=centering}
 \caption{Esquema del circuito realizado, agregando un capacitor al rectificador de onda completa.}
 \label{fig:disp_exp3}
 \end{figure}
 
 %------------------------------------------------
+%------------------------------------------------
+
 \section{Resultados y an\'alisis}
 
+\subsection{Caracterizaci\'on del diodo Schotkky}
+Lo primero que se puede apreciar en el osciloscopio es que la ca\'ida de potencial de la resistencia es nula cu\'ando la fuente de alterna tiene un potencial negativo, indicando que la corriente circulando por la resistencia era nula. Y cuando el voltaje entregado por la fuente es positivo, si se logra observar una diferencia de potencial no nula en la resistencia (figura ~\ref{diodo}). Por este motivo el nombre de esta configuraci\'on es rectificador de media onda, ya que "permite el paso de media onda". 
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{Diodo.jpg}
+\captionsetup{justification=centering}
+\caption{Captura de pantalla obtenida por el osciloscopio, con el diodo Schottky. En amarillo la ca\'ida de potencial de la resistencia y en azul el voltaje entregado por la fuente alterna}
+\label{fig:diodo}
+\end{figure}
+
+Con los datos de la ca\'ida de potencial en la resistencia y el voltaje otorgado por el transformador conectado a la red de l\'inea se obtuvieron la intensidad que circulaba por el diodo y la ca\'ida de potencial del mismo por medio de las ecuaciones:
+
+\begin{gather}
+I=\frac{V_R}{R} \\
+V_D=V-VR
+\end{gather}
+
+Siendo la resistencia utilizada en este circuito de unos $10 K\Omega$.
+\bigbreak
+
+Al graficar graficar la intensidad en funci\'on de la ca\'ida de potencial en el diodo, se puede observar que a voltajes negativos (polarizaci\'on inversa respecto al diodo) la intensidad es pr\'acticamente nula, mientras que luego de pasar una cierta tensi\'on umbral, $V_u$, el diodo se comporta casi como un conductor, aumentando la corriente que pasa por este de forma considerable (figura ~\ref{fig:diodo_shock}. La determinaci\'on de dicho $V_u$ es arbitraria, pero se suele tomar como criterio, el voltaje al cu\'al la intensidad es de 1mA. Ajustando la curva obtenida con el modelo de Shockley los par\'ametros obtenidos se muestran en la tabla ~\ref{tab:diodo}. 
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{diodograph.jpg}
+\captionsetup{justification=centering}
+\caption{Gr\'afico de la intensidad circulante por el diodo en funci\'on de su ca\'ida de potencial.}
+\label{fig:diodo_shock}
+\end{figure}
+
+\begin{table}[h]
+\centering
+\captionsetup{justification=centering}
+\caption{Ajuste de Shockley}
+\label{tab:diodo}
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|c|}{$I(V_d)=I\_S . (1-e\textasciicircum \frac\{V\_D\}\{V\_\{Teff\}\}-1)$} \\ \hline
+I\_S                                       & $5E-11\pm2E-9$                               \\ \hline
+V\_\{Teff\}                                & $0.040\pm0.006$                               \\ \hline
+$R^2$                                      & 0.5                                           \\ \hline
+F-valor                                    & 2700                                          \\ \hline
+\end{tabular}
+\end{table}
+
+Se estima entonces, con los par\'ametros obtenidos del modelo que $V_u\approx0.6V$. Cabe destacar que esta es s\'olo una estimaci\'on ya que el alto error en el par\'ametro $I_S$ no permiti\'o obtener este valor con exactitud. El $R^2$ no es muy favorable, con lo que muchos datos no son explicados correctamente por el modelo, pero el alto valor obtenido del F-valor indica que es improbable que el ajuste haya sido aleatorio. El modelo utilizado tuvo una gran complicaci\'on para ajustar los datos, debido a que este era muy sensible a los valores del $V_D$ en cu\'anto comenzaba el crecimiento exponencial. \par 
+En el gr\'afico de los residuos se puede ver que estos est\'an discretizados debido a la digitalizaci\'on del instrumental utilizado. En general se observa que para valores bajos, las desviaciones son negativas, y se llega a observar que en los \'ultimos valores, donde se observa el comportamiento exponencial del ajuste, los residuos aumentan (figura ~\ref{fig:res}).
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{residuos.jpg}
+\captionsetup{justification=centering}
+\caption{Gr\'afico de los residuos obtenidos por el ajuste con el model de Schottky.}
+\label{fig:res}
+\end{figure} 
+
 %------------------------------------------------
+
+\subsection{Caracterizaci\'on del diodo Zener}
+
+
+
+
+%------------------------------------------------
+%------------------------------------------------
+
 
 \section{Conclusiones}
 
