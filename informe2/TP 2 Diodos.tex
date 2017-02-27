@@ -206,7 +206,7 @@ Para la segunda parte de la experiencia, se arm\'o un puente de diodos como el q
 
 \section{Resultados y an\'alisis}
 
-\subsection{Caracterizaci\'on de diodos Schotkky y Zener}
+\subsection{Caracterizaci\'on de diodos Schottky y Zener}
 
 Lo primero que se puede apreciar en el osciloscopio es que la ca\'ida de potencial de la resistencia es nula cu\'ando la fuente de alterna tiene un potencial negativo, indicando que la corriente circulando por la resistencia era nula. Y cuando el voltaje entregado por la fuente es positivo, si se logra observar una diferencia de potencial no nula en la resistencia (figura ~\ref{diodo}). Por este motivo el nombre de esta configuraci\'on es rectificador de media onda, ya que "permite el paso de media onda". 
 
@@ -227,7 +227,7 @@ V_D=V-VR
 Siendo la resistencia utilizada en este circuito de unos $10 K\Omega$.
 \bigbreak
 
-Al graficar graficar la intensidad en funci\'on de la ca\'ida de potencial en el diodo, se puede observar que a voltajes negativos (polarizaci\'on inversa respecto al diodo) la intensidad es pr\'acticamente nula, mientras que luego de pasar una cierta tensi\'on umbral, $V_u$, el diodo se comporta casi como un conductor, aumentando la corriente que pasa por este de forma considerable (figura ~\ref{fig:diodo_shock}. Se hice hizo un ligero cambio respecto al modelo de Shockley original, que fue denominar a $V_T . n = V_{Teff}$ ya que al realizar el ajuste, estos dos par\'ametros son indistinguibles.
+Al graficar la intensidad en funci\'on de la ca\'ida de potencial en el diodo, se puede observar que a voltajes negativos (polarizaci\'on inversa respecto al diodo) la intensidad es pr\'acticamente nula, mientras que luego de pasar una cierta tensi\'on umbral, $V_u$, el diodo se comporta casi como un conductor, aumentando la corriente que pasa por este de forma considerable (figura ~\ref{fig:diodo_shock}. Se hice hizo un ligero cambio respecto al modelo de Shockley original, que fue denominar a $V_T . n = V_{Teff}$ ya que al realizar el ajuste, estos dos par\'ametros son indistinguibles.
 
 \begin{figure}[h!]
 \includegraphics[width=\linewidth]{diodograph.jpg}
@@ -254,26 +254,82 @@ F-valor                     & 2700                             \\ \hline
 \end{tabular}
 \end{table}
 
-En el gr\'afico de los residuos se puede ver que estos est\'an discretizados debido a la digitalizaci\'on del instrumental utilizado. En general se observa que para valores bajos, las desviaciones son negativas, y se llega a observar que en los \'ultimos valores, donde se observa el comportamiento exponencial del ajuste, los residuos aumentan (figura ~\ref{fig:res}).
+En el gr\'afico de los residuos se puede ver que estos est\'an discretizados debido a la digitalizaci\'on del instrumental utilizado. En general se observa que para valores bajos, las desviaciones son negativas, y se llega a observar que en los \'ultimos valores, donde se observa el comportamiento exponencial del ajuste, los residuos aumentan (Figura ~\ref{fig:res}).
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{residuos.jpg}
 \captionsetup{justification=centering}
 \caption{Gr\'afico de los residuos obtenidos por el ajuste con el model de Schottky.}
 \label{fig:res}
+\end{figure}
+
+El otro diodo estudiado fue el llamado diodo Zener, cuyas caracter\'isticas en polarizaci\'on directa son an\'alogas a las del diodo Schottky, pero que en polarizaci\'on inversa se comporta de manera distinta ($V <$ 0).
+
+
+Cuando el diodo esta polarizado inversamente, una peque\~na corriente circula por \'el, llamada corriente de saturaci\'on $I_{S}$, esta corriente permanece relativamente constante mientras se aumenta la tensi\'on inversa hasta que el valor de \'esta alcanza $V_{Z}$, llamada tensi—n Zener ($V_{Z} = - 0.8$ V en este caso), para la cual el diodo entra en la regi\'on de colapso, donde la corriente empieza a incrementarse r\'apidamente.
+
+Se observ\'o que en esta regi\'on, peque\~nos cambios de tensi\'on produc\'ian grandes cambios de corriente. Al realizar el ajuste, se vi\'o que el modelo de Shockley ajustaba correctamente la zona donde el diodo se encuentra polarizado directamente; pero no donde el diodo Zener muestra su comportamiento particular, por lo tanto se busc\'o una leve modificaci\'on a dicho modelo para tratar de aproximar dicha zona:
+
+\begin{equation}
+\label{eq:shockley}
+I = \left\{ \begin{array}{lcc}
+             I_{S}(e^\frac{V_{D}}{nV_{T}} - 1) &   si  & V_{D} \geq 0 \\
+             \\ I_{S}(-e^\frac{-V_{D} - V_{Z}}{nV_{T}} + e^\frac{V_{D}}{nV_{T}} - 1) &  si  & V_{D} \leq 0
+             \end{array}
+   \right.
+\end{equation}
+
+Nuevamente, se obtuvieron la intensidad que circulaba por el diodo y la ca\'ida de potencial del mismo por medio de las ecuaciones (2) y (3), solo que en este circuito la resistencia utilizada fue de 680 $\Omega$.
+
+Analizando la curva del diodo zener se ve que conforme se va aumentando negativamente el voltaje aplicado al diodo, la corriente que pasa por el aumenta muy poco (aprox 1,2 mA).
+Pero una vez que se llega a un determinado voltaje, llamada voltaje o tensi—n de Zener (Vz), el aumento del voltaje (siempre negativamente) es muy peque–o, pudiendo considerarse constante, como puede verse en la Figura ~\ref{fig:zener_ajuste}.
+
+\begin{figure}[h]
+\includegraphics[width=\linewidth]{zener_ajuste.jpg}
+\captionsetup{justification=centering}
+\caption{Gr\'afico de la intensidad circulante por el diodo Zener funci\'on de su ca\'ida de potencial.}
+\label{fig:zener_ajuste}
 \end{figure} 
+
+Ajustando la curva obtenida con el modelo de Shockley modificado (figura X), los par‡metros obtenidos se muestran en la tabla 2. que conforme se va aumentando negativamente el voltaje aplicado al diodo, la corriente que pasa por \'el aumenta muy poco ($\sim$ 1,2 mA). En este caso, el valor de $R^2$ mejoro mucho con respecto al diodo Schottky, con lo cual gran parte de los datos son explicados correctamente por el modelo, ademas de que la cifra obtenida del F-valor indica que es improbable que el ajuste haya sido aleatorio. 
+En este caso tambi\'en cabe destacar que el modelo utilizado tuvo una gran complicaci\'on para ajustar los datos, debido a que este era muy sensible a los valores de $V_{d}$ y $V_{Z}$ en cuanto comenzaba el crecimiento exponencial.
+
+\begin{table}[h!]
+\centering
+\captionsetup{justification=centering}
+%\setlength{\belowcaptionskip}{-10pt} Esto saca el espacio debajo de las caption
+\caption{Ajuste de Shockley modificado para el diodo Zener. Nuevamente, $nV_{T} = V_{Teff}$.}
+\label{tab:zener}
+\begin{tabular}{|c|c|}
+\hline
+\multicolumn{2}{|c|}{$I(V_d)=I_S . (e^\frac{V_D}{V_{Tee}}-1)$} \\ \hline
+$I_S$                       & $411E-5\pm6,53E-5$                   \\ \hline
+$V_{Teff}$                  & $2.594\pm0.030$                  \\ \hline
+$R^2$                       & 0.905                              \\ \hline
+F-valor                     & 11871                            \\ \hline
+\end{tabular}
+\end{table}
+
+En el gr‡fico de los residuos se observa que para valores bajos, las desviaciones son negativas, y se llega a observar que en los œltimos valores, tanto para los valores negativos y positivos de V, donde se observa el comportamiento exponencial del ajuste, los residuos aumentan (Figura ~\ref{fig:zener_residuos}.
+
+\begin{figure}[H]
+\includegraphics[width=\linewidth]{zener_residuos.jpg}
+\captionsetup{justification=centering}
+\caption{Gr\'afico de los residuos obtenidos por el ajuste con el modelo de Shockley modificado para el diodo Zener.}
+\label{fig:zener_residuos}
+\end{figure}
 
 
 %------------------------------------------------
 \subsection{Rectificadores de onda completa y observaci\'on del Ripple}
 En esta segunda parte del experimento se realiz\'o un an\'alisis m\'as bien cualitativo de un rectificador de onda completa y del fen\'omeno del Ripple. Se arm\'o entonces el puente de diodos y se observ\'o en el osciloscopio como variaba la ca\'ida de potencial en funci\'on del tiempo (figura \ref{fig:noripple}).
 
-\begin{figure}[h]
-\includegraphics[width=\linewidth]{noripple.jpg}
-\captionsetup{justification=centering}
-\caption{Rectificador de onda completa}
-\label{fig:noripple}
-\end{figure} 
+%\begin{figure}[h]
+%\includegraphics[width=\linewidth]{noripple.jpg}
+%\captionsetup{justification=centering}
+%\caption{Rectificador de onda completa}
+%\label{fig:noripple}
+%\end{figure} 
 
 
 
