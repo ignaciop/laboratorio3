@@ -21,7 +21,7 @@
 \usepackage{float} %Latex toma a las figuras como "floats" esto quiere decir que se ponen donde se les canta el orto, este paquete impide que las figuras hagan lo que quieran.
 \usepackage{graphicx} %figuras
 \usepackage{amsmath} %me deja usar ecuaciones como la gente
-\usepackage{titlesec} %PERMITE CAMBIAR EL FUCKING TAMA脩O DE LOS TITULOS Y SUBTITULOS DESPUES DE 2HS DE BUSQUEDA DE COMO MIERDA HACERLO
+\usepackage{titlesec} %PERMITE CAMBIAR EL FUCKING TAMA脙鈥極 DE LOS TITULOS Y SUBTITULOS DESPUES DE 2HS DE BUSQUEDA DE COMO MIERDA HACERLO
 \titleformat{\subsection}
 {\normalfont\small\bfseries}{\thesubsection}{1em}{}
 
@@ -81,7 +81,7 @@
 \date{Grupo 8 - Laboratorio 3, C\'atedra Bilbao - Departamento de F\'isica, Facultad de Ciencias Exactas y Naturales, Universidad de Buenos Aires \newline \\ \today} % Leave empty to omit a date
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
-\noindent En este trabajo se arm\'o un circuito electr\'onico simple para medir la resistencia de una l\'ampara incandescente. Se analizaron los datos obtenidos con el programa Origin 8.5 y se realizaron ajustes lineal, cuadr\'atico y c\'ubico. Se encontr\'o que el mejor ajuste para los datos obtenidos es el cuadr\'atico con sus par\'ametros libres ($R^2$ = 0,99999), dado que la resistencia de la l\'ampara se ve afectada por la intensidad de corriente que la atraviesa, as\'i como tambi\'en la temperatura de su filamento y la del ambiente.
+\noindent En este trabajo se estudi贸 la utilizaci贸n del diodo semiconductor como elemento de rectificaci贸n de corriente alterna, en combinaci贸n con otros elementos (resistencias y capacitores). Como primera experiencia, se construy贸 un rectificador de media onda conformado por un circuito simple conformado por una fuente alterna, una resistencia y un diodo semiconductor en serie; en segundo lugar se conform贸 un rectificador de onda completa utilizando un puente de diodos semiconductores en paralelo a una resistencia recorrida en un solo sentido por la corriente, y mediante el agregado de un condensador en paralelo a esta resistencia, la aproximaci贸n a corriente continua.
 \end{abstract}
 }
 
@@ -103,7 +103,7 @@ El diodo es un dispositivo de dos terminales que permite el paso de la corriente
 
 Cuando se somete al diodo semiconductor a una diferencia de tensi\'on externa, puede polarizarse de forma directa o inversa. En la polarizaci\'on directa, la bater\'ia disminuye la barrera de potencial, permitiendo el paso de la corriente de electrones a trav\'es de la uni\'on; es decir, el diodo polarizado directamente funciona como un conductor, cuando se supera un cierto voltaje umbral. En el caso de la polarizaci\'on inversa, el polo negativo de la bater\'ia se conecta a la zona p y el polo positivo a la zona n, lo que hace aumentar la zona de carga, y la tensi\'on en dicha zona hasta que se alcanza el valor de la tensi\'on de la bater\'ia. \par
 
-Otro tipo de diodo estudiado es el diodo Zener. Estos se emplean para producir una tensi\'on entre sus terminales muy constante y relativamente independiente de la corriente que los atraviesan. Normalmente, polarizados en forma inversa no permite pr\'acticamente el pasaje de corriente, pero al alcanzar una determinada tensi\'on (tensi\'on Zener), se produce un aumento de la cantidad de corriente que lo atraviesa, manteniendo la tensi\'on entre sus terminales pr\'acticamente constante.
+Otro tipo de diodo estudiado es el diodo Zener. Estos se emplean para producir una tensi\'on entre sus terminales muy constante y relativamente independiente de la corriente que los atraviesan. Normalmente, polarizados en forma inversa no permite pr\'acticamente el pasaje de corriente, pero al alcanzar una determinada tensi\'on (denominada tensi\'on Zener), se produce un aumento de la cantidad de corriente que lo atraviesa, manteniendo la tensi\'on entre sus terminales pr\'acticamente constante.
 
 \begin{figure}[h]
 \captionsetup{justification=centering}
@@ -126,7 +126,7 @@ $V_{D}$: Tension a trav\'es del diodo.
 \item 
 $I_{S}$: Intensidad de corriente de saturaci\'on que se establece al polarizar inversamente el diodo ($\sim 10^{-12}$ A).
 \item
-$V_{T}$: Tension t\'ermica ($\sim$ 25 mV a 25录C). Se define como $\frac{kT}{q}$, donde $k$ es la constante de Boltzmann, $T$ la temperatura y $q$ la carga del electr\'on.
+$V_{T}$: Tension t\'ermica ($\sim$ 25 mV a 25脗录C). Se define como $\frac{kT}{q}$, donde $k$ es la constante de Boltzmann, $T$ la temperatura y $q$ la carga del electr\'on.
 \item
 $n$: Factor de calidad.
 \end{itemize}
@@ -156,7 +156,7 @@ Los rectificadores el\'ectricos son los circuitos encargados de convertir la cor
 
 Los rectificadores de media onda funcionan haciendo pasar la mitad de la corriente alterna a trav\'es de uno o m\'as diodos, convirtiendo en este paso dicha mitad de la corriente alterna en corriente el\'ectrica directa. Estos rectificadores no son muy eficientes porque s\'olo convierten la mitad de la corriente alterna en corriente directa; por lo tanto, solo un diodo es necesario para su funcionamiento.\par
 
-Los rectificadores de onda completa son m\'as complejos que los rectificadores de media onda, pero tambi\'en son mucho m\'as eficientes. Estos generalmente utilizan cuatro diodos para funcionar (puente de diodos), haciendo pasar la corriente alterna a trav\'es de dicho puente, obteniendo un terminal positivo y otro negativo, caracter\'istico de la corriente directa.
+Los rectificadores de onda completa son m\'as complejos que los rectificadores de media onda, pero tambi\'en son mucho m\'as eficientes. Estos generalmente utilizan cuatro diodos para funcionar (puente de diodos), haciendo pasar la corriente alterna a trav\'es de dicho puente, obteniendo un terminal positivo y otro negativo, caracter\'istico de la corriente continua.
 
 
 %------------------------------------------------
@@ -169,7 +169,7 @@ Los instrumentos de laboratorio utilizados fueron:
 \item 
 \label{zener} Diodo Zener
 \item 
-\label{osc} Osciloscopio Tektronix 1052-B (R\'otulo: OSC-067) %el r贸tulo lo chamuye de otro experimento que hicimos porque no lo ten铆a, si alguien lo anoto, mejor
+\label{osc} Osciloscopio Tektronix 1052-B (R\'otulo: OSC-067) %el r脙鲁tulo lo chamuye de otro experimento que hicimos porque no lo ten脙颅a, si alguien lo anoto, mejor
 \item
 \label{trans} Transformador conectado a l\'inea. 
 \item Resistencias varias
@@ -266,7 +266,7 @@ En el gr\'afico de los residuos se puede ver que estos est\'an discretizados deb
 El otro diodo estudiado fue el llamado diodo Zener, cuyas caracter\'isticas en polarizaci\'on directa son an\'alogas a las del diodo Schottky, pero que en polarizaci\'on inversa se comporta de manera distinta ($V <$ 0).
 
 
-Cuando el diodo esta polarizado inversamente, una peque\~na corriente circula por \'el, llamada corriente de saturaci\'on $I_{S}$, esta corriente permanece relativamente constante mientras se aumenta la tensi\'on inversa hasta que el valor de \'esta alcanza $V_{Z}$, llamada tensi梟 Zener ($V_{Z} = - 0.8$ V en este caso), para la cual el diodo entra en la regi\'on de colapso, donde la corriente empieza a incrementarse r\'apidamente.
+Cuando el diodo esta polarizado inversamente, una peque\~na corriente circula por \'el, llamada corriente de saturaci\'on $I_{S}$, esta corriente permanece relativamente constante mientras se aumenta la tensi\'on inversa hasta que el valor de \'esta alcanza $V_{Z}$, llamada tensi鈥攏 Zener ($V_{Z} = - 0.8$ V en este caso), para la cual el diodo entra en la regi\'on de colapso, donde la corriente empieza a incrementarse r\'apidamente.
 
 Se observ\'o que en esta regi\'on, peque\~nos cambios de tensi\'on produc\'ian grandes cambios de corriente. Al realizar el ajuste, se vi\'o que el modelo de Shockley ajustaba correctamente la zona donde el diodo se encuentra polarizado directamente; pero no donde el diodo Zener muestra su comportamiento particular, por lo tanto se busc\'o una leve modificaci\'on a dicho modelo para tratar de aproximar dicha zona:
 
@@ -282,7 +282,7 @@ I = \left\{ \begin{array}{lcc}
 Nuevamente, se obtuvieron la intensidad que circulaba por el diodo y la ca\'ida de potencial del mismo por medio de las ecuaciones (2) y (3), solo que en este circuito la resistencia utilizada fue de 680 $\Omega$.
 
 Analizando la curva del diodo zener se ve que conforme se va aumentando negativamente el voltaje aplicado al diodo, la corriente que pasa por el aumenta muy poco (aprox 1,2 mA).
-Pero una vez que se llega a un determinado voltaje, llamada voltaje o tensi梟 de Zener (Vz), el aumento del voltaje (siempre negativamente) es muy peque杘, pudiendo considerarse constante, como puede verse en la Figura ~\ref{fig:zener_ajuste}.
+Pero una vez que se llega a un determinado voltaje, llamada voltaje o tensi鈥攏 de Zener (Vz), el aumento del voltaje (siempre negativamente) es muy peque鈥搊, pudiendo considerarse constante, como puede verse en la Figura ~\ref{fig:zener_ajuste}.
 
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{zener_ajuste.jpg}
@@ -291,7 +291,7 @@ Pero una vez que se llega a un determinado voltaje, llamada voltaje o tensi梟 de
 \label{fig:zener_ajuste}
 \end{figure} 
 
-Ajustando la curva obtenida con el modelo de Shockley modificado (figura X), los par噈etros obtenidos se muestran en la tabla 2. que conforme se va aumentando negativamente el voltaje aplicado al diodo, la corriente que pasa por \'el aumenta muy poco ($\sim$ 1,2 mA). En este caso, el valor de $R^2$ mejoro mucho con respecto al diodo Schottky, con lo cual gran parte de los datos son explicados correctamente por el modelo, ademas de que la cifra obtenida del F-valor indica que es improbable que el ajuste haya sido aleatorio. 
+Ajustando la curva obtenida con el modelo de Shockley modificado (figura X), los par鈥etros obtenidos se muestran en la tabla 2. que conforme se va aumentando negativamente el voltaje aplicado al diodo, la corriente que pasa por \'el aumenta muy poco ($\sim$ 1,2 mA). En este caso, el valor de $R^2$ mejoro mucho con respecto al diodo Schottky, con lo cual gran parte de los datos son explicados correctamente por el modelo, ademas de que la cifra obtenida del F-valor indica que es improbable que el ajuste haya sido aleatorio. 
 En este caso tambi\'en cabe destacar que el modelo utilizado tuvo una gran complicaci\'on para ajustar los datos, debido a que este era muy sensible a los valores de $V_{d}$ y $V_{Z}$ en cuanto comenzaba el crecimiento exponencial.
 
 \begin{table}[h!]
@@ -310,7 +310,7 @@ F-valor                     & 11871                            \\ \hline
 \end{tabular}
 \end{table}
 
-En el gr噁ico de los residuos se observa que para valores bajos, las desviaciones son negativas, y se llega a observar que en los 渓timos valores, tanto para los valores negativos y positivos de V, donde se observa el comportamiento exponencial del ajuste, los residuos aumentan (Figura ~\ref{fig:zener_residuos}.
+En el gr鈥ico de los residuos se observa que para valores bajos, las desviaciones son negativas, y se llega a observar que en los 艙ltimos valores, tanto para los valores negativos y positivos de V, donde se observa el comportamiento exponencial del ajuste, los residuos aumentan (Figura ~\ref{fig:zener_residuos}.
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{zener_residuos.jpg}
