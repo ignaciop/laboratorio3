@@ -249,7 +249,7 @@ La determinaci\'on de dicho $V_u$ es arbitraria, pero se suele tomar como criter
 \label{tab:diodo}
 \begin{tabular}{|c|c|}
 \hline
-\multicolumn{2}{|c|}{$I(V_D)=I_S . (e^\frac{V_D}{V_{Tee}}-1)$} \\ \hline
+\multicolumn{2}{|c|}{$I(V_D)=I_S . (e^\frac{V_D}{V_{Teff}}-1)$} \\ \hline
 $I_S$                       & $5*10^{-11}\pm2*10^{-9}$                   \\ \hline
 $V_{Teff}$                  & $0.040\pm0.006$                  \\ \hline
 $R^2$                       & 0.5                              \\ \hline
@@ -269,18 +269,18 @@ En el gr\'afico de los residuos se puede ver que estos est\'an discretizados deb
 El otro diodo estudiado fue el llamado diodo Zener, cuyas caracter\'isticas en polarizaci\'on directa son an\'alogas a las del diodo Schottky, pero que en polarizaci\'on inversa se comporta de manera distinta ($V <$ 0).
 
 
-Cuando el diodo esta polarizado inversamente, una peque\~na corriente circula por \'el, llamada corriente de saturaci\'on $I_{S}$, esta corriente permanece relativamente constante mientras se aumenta la tensi\'on inversa hasta que el valor de \'esta alcanza $V_{Z}$, llamada tensi\'on Zener ($V_{Z} = - 0.8$ V en este caso), para la cual el diodo entra en la regi\'on de colapso, donde la corriente empieza a incrementarse r\'apidamente.
+Cuando el diodo esta polarizado inversamente, una peque\~na corriente circula por \'el, llamada corriente de saturaci\'on $I_{S}$, esta corriente permanece relativamente constante mientras se aumenta la tensi\'on inversa hasta que el valor de \'esta alcanza $V_{Z}$, llamada tensi\'on Zener ($V_{Z} \approx - 0.8$ V en este caso), para la cual el diodo entra en la regi\'on de colapso, donde la corriente empieza a incrementarse r\'apidamente.
 
 Se observ\'o que en esta regi\'on, peque\~nos cambios de tensi\'on produc\'ian grandes cambios de corriente. Al realizar el ajuste, se vi\'o que el modelo de Shockley ajustaba correctamente la zona donde el diodo se encuentra polarizado directamente; pero no donde el diodo Zener muestra su comportamiento particular, por lo tanto se busc\'o una leve modificaci\'on a dicho modelo \cite{shockley2} para tratar de aproximar dicha zona:
 
-\begin{equation*}
+\begin{equation}
 \label{eq:shockley2}
 I = \left\{ \begin{array}{lcc}
              I_{S}(e^\frac{V_{D}}{nV_{T}} - 1) &   si  & V_{D} \geq 0 \\
              \\ I_{S}(-e^\frac{-V_{D} - V_{Z}}{nV_{T}} + e^\frac{V_{D}}{nV_{T}} - 1) &  si  & V_{D} \leq 0
              \end{array}
    \right.
-\end{equation*}
+\end{equation}
 
 Nuevamente, se obtuvieron la intensidad que circulaba por el diodo y la ca\'ida de potencial del mismo por medio de las ecuaciones (2) y (3), solo que en este circuito la resistencia utilizada fue de 680 $\Omega$.
 
@@ -303,7 +303,7 @@ En este caso tambi\'en cabe destacar que el modelo utilizado tuvo una gran compl
 \label{tab:zener}
 \begin{tabular}{|c|c|}
 \hline
-\multicolumn{2}{|c|}{$I(V_D)$ = Ecuaci\'on ~\ref{eq:shockley2}} \\ \hline
+\multicolumn{2}{|c|}{$I(V_D)$ = Ecuaci\'on \ref{eq:shockley2}} \\ \hline
 $I_S$                       & $411*10^{-5}\pm6,53*10^{-5}$                   \\ \hline
 $V_{Teff}$                  & $2.594\pm0.030$                  \\ \hline
 $R^2$                       & 0.905                              \\ \hline
@@ -350,13 +350,13 @@ Cabe destacar que al agregar mayor capacidad, m\'as se reducen las oscilaciones 
 
 
 \section{Conclusiones}
-En nuestra primera experiencia, utilizando el modelo de Shockley y tomando como umbral la tensi\'on m\'inima para la cual la corriente circulando por el circuito es de 1 mA, obtuvimos un Vu de aproximadamente 0,6 V, aunque el error del ajuste utilizando dicho modelo fue muy grande ($R^2$ de 0,5).
+En nuestra primera experiencia, utilizando el modelo de Shockley y tomando como umbral la tensi\'on m\'inima para la cual la corriente circulando por el circuito es de 1 mA, obtuvimos un $V_{u}$ de aproximadamente 0,6 V, aunque el error del ajuste utilizando dicho modelo fue muy grande ($R^2$ de 0,5).
 
-En segundo lugar, se utiliz\'o un modelo de Shockley modificado y se tom\'o como -0,8 V la tensi\'on de colapso del diodo. En este caso el error de ajuste fue menor, dando un $R^2$ en torno a 0,9.
+En segundo lugar, se utiliz\'o un modelo de Shockley modificado y se tom\'o como $-0,8$ V la tensi\'on de colapso del diodo. En este caso el error de ajuste fue menor, dando un $R^2$ en torno a 0,9.
 
 Se verific\'o en un circuito de corriente alterna que el diodo no permite la circulaci\'on de corriente en los ciclos negativos de la fuente (rectificador de media onda), mientras que en un puente de diodos, la disposici\'on es tal que sobre una resistencia de carga circula siempre en el mismo sentido (rectificador de onda entera).
 
-Al agregar un capacitor en paralelo al rectificador de onda entera, se observa una disminuci\'on del cociente entre el voltaje pico a pico sobre la resistencia y el voltaje m\'aximo entregado por la fuente alterna (ripple). Utilizando capacitores de diferentes capacidades a resistencia y frecuencia del generador constantes, puede verse que el ripple disminuye a medida que la capacidad aumenta, asemej\'andose la tensi\'on sobre la resistencia cada vez m\'as a una corriente continua. Esto se debe a que el tiempo caracter\'istico de decaimiento de un sistema RC en paralelo es directamente proporcional a la capacidad del capacitor. A una resistencia, tensi\'on de entrada y frecuencia fijas, un capacitor de 226 nF dar\'a una oscilaci\'on de 6,24 ± 0,06 V sobre la resistencia (con una tensi\'on m\'axima de 7,68 ± 0,06 V) mientras que con uno de 62 µF tendremos una oscilaci\'on de 218 mV, muy inferior al voltaje m\'aximo. A mayor capacidad, por lo tanto, mejor ser\'a el cociente de ripple obtenido y el efecto rectificador. Se pudo observar por \'ultimo que la frecuencia del ripple observado, es independiente de la capacidad. 
+Al agregar un capacitor en paralelo al rectificador de onda entera, se observa una disminuci\'on del cociente entre el voltaje pico a pico sobre la resistencia y el voltaje m\'aximo entregado por la fuente alterna (ripple). Utilizando capacitores de diferentes capacidades a resistencia y frecuencia del generador constantes, puede verse que el ripple disminuye a medida que la capacidad aumenta, asemej\'andose la tensi\'on sobre la resistencia cada vez m\'as a una corriente continua. Esto se debe a que el tiempo caracter\'istico de decaimiento de un sistema RC en paralelo es directamente proporcional a la capacidad del capacitor. A una resistencia, tensi\'on de entrada y frecuencia fijas, un capacitor de 226 nF dar\'a una oscilaci\'on de 6,24 $\pm$ 0,06 V sobre la resistencia (con una tensi\'on m\'axima de 7,68 $\pm$ 0,06 V) mientras que con uno de 62 $\mu$F tendremos una oscilaci\'on de 218 mV, muy inferior al voltaje m\'aximo. A mayor capacidad, por lo tanto, mejor ser\'a el cociente de ripple obtenido y el efecto rectificador. Se pudo observar por \'ultimo que la frecuencia del ripple observado, es independiente de la capacidad. 
 
 
 
@@ -366,7 +366,7 @@ Al agregar un capacitor en paralelo al rectificador de onda entera, se observa u
 
 \begin{thebibliography}{99} % Bibliography - this is intentionally simple in this template
 
-\bibitem{intro} Robert L. Nashelsky ,Boylestad Louis. 2009. Electr\'onica: Teor\'ia de circuitos y dispositivos electr\'onicos. M\'exico: Pearson educaci\'on. Cap\'itulo 1: Diodos semiconductores, Cap\'itulo 2: Aplicaciones del diodo.
+\bibitem{intro} Robert L. Nashelsky, Boylestad Louis. 2009. Electr\'onica: Teor\'ia de circuitos y dispositivos electr\'onicos. M\'exico: Pearson educaci\'on. Cap\'itulo 1: Diodos semiconductores, Cap\'itulo 2: Aplicaciones del diodo.
 \bibitem{osc} Tektronix. Marzo del 2012. TBS1000B and TBS1000B-EDU Series, Digital Storage Oscilloscopes, User Manual. [accedido el 26 de Febrero del 2017] \url{http://www.phys.uconn.edu/~eyler/phys3150/R/TBS1052B_User_Manual.pdf}
 \bibitem{shockley2} J. Mike Rollins. Enero del 2008. Zener Diode Simulator. [accedido el 26 de Febrero del 2017]. \url{http://www.camotruck.net/rollins/simulator.html}
  
