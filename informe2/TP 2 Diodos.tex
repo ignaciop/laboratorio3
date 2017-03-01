@@ -67,7 +67,7 @@
 
 \pretitle{\begin{center}\LARGE\bfseries} % Article title formatting
 \posttitle{\end{center}} % Article title closing formatting
-\title{Caracterizaci\'on de diodos. Rectificadores de media onda y de onda completa.} % Article title
+\title{Caracterizaci\'on de diodos. Rectificadores de media y onda completa.} % Article title
 \author{%
 \textsc{Maximiliano Inafuku} \\[1ex] % Your name
 \normalsize \href{mailto:maxi-46@hotmail.com}{maxi-46@hotmail.com} % Your email address
@@ -82,7 +82,7 @@
 \date{Grupo 8 - Laboratorio 3, C\'atedra Bilbao - Departamento de F\'isica, Facultad de Ciencias Exactas y Naturales, Universidad de Buenos Aires \newline \\ \today} % Leave empty to omit a date
 \renewcommand{\maketitlehookd}{%
 \begin{abstract}
-\noindent . En el presente trabajo trabajo, se efectu\'o en una primera instancia una caracterizaci\'on del diodo bajo polarizaci\'on directa en corriente continua, calculando su voltaje umbral (aquel por encima del cual el diodo puede transmitir corriente). El r\'egimen de polarizaci\'on inversa del diodo se estudi\'o mediante un diodo zener, el cual funciona bajo dicho r\'egimen (por debajo de determinado umbral de tensi\'on sobre el elemento) no como un rectificador de corriente sino como un estabilizador de tensi\'on. En una instancia posterior se estudi\'o la caracterización utilizaci\'on del diodo semiconductor como elemento de rectificaci\'on de corriente alterna, en combinaci\'on con otros elementos (resistencias y capacitores). Como primera experiencia de esta segunda parte de nuestro trabajo, se construy\'o un rectificador de media onda conformado por un circuito simple conformado por una fuente alterna, una resistencia y un diodo semiconductor en serie; en segundo lugar se conform\'o un rectificador de onda completa utilizando un puente de diodos semiconductores en paralelo a una resistencia recorrida en un solo sentido por la corriente, y mediante el agregado de un condensador en paralelo a esta resistencia, la aproximaci\'on a corriente continua y observaci\'on del ripple (atenuaci\'on de la onda de tensi\'on de salida).
+\noindent En este trabajo se estudi\'o la utilizaci\'on del diodo semiconductor como elemento de rectificaci\'on de corriente alterna, en combinaci\'on con otros elementos (resistencias y capacitores). Como primera experiencia, se construy\'o un rectificador de media onda primero con un diodo Schottky y luego con un Zener, y se hay\'o que el voltaje umbral del diodo Skottchy era $\approx0.6V$ y para el segundo, la tensi\'on Zener fue de $\approx - 0.8$. En segundo lugar se estudi\'o un rectificador de onda completa, y se observ\'o que por la resistencia de carga la corriente iba en un s\'olo sentido. Mediante el agregado de un condensador en paralelo a esta resistencia, se observ\'o el efecto del ripple y se not\'o que este disminu\'ia conforme aumentaba la capacidad.
 \end{abstract}
 }
 
@@ -113,7 +113,7 @@ Otro tipo de diodo estudiado es el diodo Zener. Estos se emplean para producir u
 \label{fig:tipos_diodos}
 \end{figure}
 
-El modelo utilizado para caracterizar al diodo es el de Shockley, el cual permite aproximar el comportamiento del mismo en la mayor\'ia de los circuitos. La ecuaci\'on que relaciona la intensidad de corriente y la diferencia de potencial es \cite{eq:shockley}:
+El modelo utilizado para caracterizar al diodo es el de Shockley, el cual permite aproximar el comportamiento del mismo en la mayor\'ia de los circuitos. La ecuaci\'on que relaciona la intensidad de corriente y la diferencia de potencial es:
 \begin{equation}
 \label{eq:shockley}
 I = I_{S}(e^\frac{V_{D}}{nV_{T}} - 1)
@@ -168,7 +168,7 @@ Los instrumentos de laboratorio utilizados fueron:
 \item 
 \label{diodo} Diodos Schottky (1N 4007 LD). % Estos son los diodos normales
 \item 
-\label{zener} Diodo Zener.
+\label{zener} Diodo Zener (4.7V).
 \item 
 \label{osc} Osciloscopio Tektronix 1052-B (R\'otulo: OSC-067)\cite{osc}. %el rotulo lo chamuye de otro experimento que hicimos porque no lo tenia, si alguien lo anoto, mejor
 \item
@@ -177,7 +177,7 @@ Los instrumentos de laboratorio utilizados fueron:
 \item Capacitores varios.
 \end{itemize}
 
-Para poder caracterizar el voltaje umbral del diodo, es necesario conocer la ca\'ida de potencial y la intensidad que pasan por el mismo. Con el objetivo de hallar estos datos se arm\'o el circuito que se muestra en la Figura \ref{fig:dsp_exp}, donde se utiliz\'o como volt\'imetro al osciloscopio y la fuente alterna, es el transformador conectado a l\'inea. Esta configuraci\'on fue la misma tanto para la caracterizaci\'on del Schottky como la del diodo Zener. Los datos se recogieron en la computadora conectando el osciloscopio a la misma por medio de un cable USB, utilizando el programa OpenChoice Desktop. \par 
+Para poder caracterizar el voltaje umbral del diodo, es necesario conocer la ca\'ida de potencial y la intensidad que pasan por el mismo. Con el objetivo de hallar estos datos se arm\'o el circuito que se muestra en la Figura \ref{fig:dsp_exp}, donde se utiliz\'o como volt\'imetro, ambos canales del osciloscopio y la fuente alterna, es el transformador conectado a l\'inea. Esta configuraci\'on fue la misma tanto para la caracterizaci\'on del Schottky como la del diodo Zener. Los datos se recogieron en la computadora, conectando el osciloscopio por medio de un cable USB y utilizando el programa OpenChoice Desktop. \par 
 
 \begin{figure}[H]
 \includegraphics[width=\linewidth]{disp_exp.png}
@@ -211,7 +211,7 @@ Para poder apreciar mejor la forma funcional del Ripple, se utiliz\'o la opci\'o
 
 \subsection{Caracterizaci\'on de diodos Schottky y Zener}
 
-Lo primero que se puede apreciar en el osciloscopio es que la ca\'ida de potencial de la resistencia es nula cu\'ando la fuente de alterna tiene un potencial negativo, indicando que la corriente circulando por la resistencia era nula. Y cuando el voltaje entregado por la fuente es positivo, si se logra observar una diferencia de potencial no nula en la resistencia (Figura ~\ref{fig:diodo2}). Por este motivo el nombre de esta configuraci\'on es rectificador de media onda, ya que "permite el paso de media onda". Adem\'as es posible notar que la frecuencia registrada del osciloscopio se encuetra en un valor cercano a los 50 Hz, que es la frecuencia de la tensi\'on de l\'inea, como se esperaba.
+Lo primero que se puede apreciar en el osciloscopio es que la ca\'ida de potencial de la resistencia es nula cu\'ando la fuente de alterna tiene un potencial negativo, indicando que la corriente circulando por la resistencia era nula. Y cuando el voltaje entregado por la fuente es positivo, si se logra observar una diferencia de potencial no nula en la resistencia (Figura ~\ref{fig:diodo2}, curva amarilla). Por este motivo el nombre de esta configuraci\'on es rectificador de media onda, ya que "permite el paso de media onda". Adem\'as es posible notar que la frecuencia registrada del osciloscopio se encuetra en un valor cercano a los 50 Hz, que es la frecuencia de la tensi\'on de l\'inea, como se esperaba.
 
 \begin{figure}[h]
 \includegraphics[width=\linewidth]{Diodo.jpg}
@@ -239,7 +239,7 @@ Al graficar la intensidad en funci\'on de la ca\'ida de potencial en el diodo, s
 \label{fig:diodo_shock}
 \end{figure}
 
-La determinaci\'on de dicho $V_u$ es arbitraria, pero se suele tomar como criterio, el voltaje al cu\'al la intensidad es de 1 mA. Ajustando la curva obtenida con el modelo de Shockley los par\'ametros obtenidos se muestran en la Tabla ~\ref{tab:diodo}. Se estima entonces, con los par\'ametros obtenidos del modelo que $V_u\approx0.6V$. Cabe destacar que esta es s\'olo una estimaci\'on ya que el alto error en el par\'ametro $I_S$ no permiti\'o obtener este valor con exactitud. El $R^2$ no es muy favorable, con lo que muchos datos no son explicados correctamente por el modelo, pero el alto valor obtenido del F-valor indica que es improbable que el ajuste haya sido aleatorio. El modelo utilizado tuvo una gran complicaci\'on para ajustar los datos, debido a que este era muy sensible a los valores del $V_D$ en cu\'anto comenzaba el crecimiento exponencial. \par 
+La determinaci\'on de dicho $V_u$ es arbitraria, pero se suele tomar como criterio, el voltaje al cu\'al la intensidad es de 1 mA. En la Tabla ~\ref{tab:diodo}, se muestran los par\'ametros obtenidos por el ajuste seg\'un la ecuaci\'on de Shockley y se estima as\'i que $V_u\approx0.6V$. Cabe destacar que esta es s\'olo una estimaci\'on ya que el alto error en el par\'ametro $I_S$ no permiti\'o obtener este valor con exactitud. El $R^2$ no es muy favorable, con lo que muchos datos no son explicados correctamente por el modelo, pero el alto valor obtenido del F-valor indica que es improbable que el ajuste haya sido aleatorio. El modelo utilizado tuvo una gran complicaci\'on para ajustar los datos, debido a que este era muy sensible a los valores del $V_D$ en cu\'anto comenzaba el crecimiento exponencial. \par 
 
 \begin{table}[h!]
 \centering
@@ -331,7 +331,7 @@ En esta segunda parte del experimento se realiz\'o un an\'alisis m\'as bien cual
 \label{fig:noripple}
 \end{figure} 
 
-En este caso el voltaje oscila, siendo siempre positivo, y la apariencia es similar al m\'odulo de una sinusoidal. El voltaje pico a pico entregado por la fuente de corriente alterna es de $17.4\pm0.2$ V, mientras que la ca\'ida de potencial de la resistencia es de unos $7.68\pm0.06$ V. Este es menor a $8,7\pm0.1$ V (la mitad de lo entregado por la fuente), por lo que hay una leve atenuaci\'on de la corriente circuito. Por otro lado la frecuencia observada es de aproximadamente 100 Hz, que es justamente el doble a los 50 Hz entregados por la fuente de corriente alterna como se esperaba. Al invertir la corriente cu\'ando la ca\'ida de potencial es negativa, justamente se obtiene una funci\'on cuyo per\'iodo es el doble del voltaje sinusoidal entregado por la fuente.\par 
+En este caso el voltaje oscila, siendo siempre positivo, y la apariencia es similar al m\'odulo de una sinusoidal. El voltaje pico a pico entregado por la fuente de corriente alterna es de $17.4\pm0.2$ V, mientras que la ca\'ida de potencial de la resistencia es de unos $7.68\pm0.06$ V. Este es menor a $8,7\pm0.1$ V (la mitad de lo entregado por la fuente), por lo que hay una leve atenuaci\'on de la corriente en el circuito. Por otro lado la frecuencia observada es de aproximadamente 100 Hz, que es justamente el doble a los 50 Hz entregados por la fuente de corriente alterna como se esperaba. Al invertir la corriente cu\'ando la ca\'ida de potencial es negativa, justamente se obtiene una funci\'on cuyo per\'iodo es el doble del voltaje sinusoidal entregado por la fuente.\par 
 
 
 Al agregar un capacitor de en paralelo a la resistencia de carga, sobre la cu\'al se mide la ca\'ida de potencial, se produce el efecto de "ripple". El primer capacitor agregado es de 226 nF, en este caso el efecto observado es bastante tenue, siendo ahora la oscilaci\'on de $6.24\pm0.06$ V. En cambio al colocar un capacitor de 4.24 $\mu$F, la oscilaci\'on se vi\'o fuertemente disminu\'ida, siendo de tan solo $1.28\pm0.06$ V. Por \'ultimo con un capacitor de 62 $\mu$F, la oscilaci\'on se hace casi imperceptible por el osciloscopio y esta se distorsiona considerablemente, siendo la oscilaci\'on de aproximadamente 218 mV. La Figura \ref{fig:ripplejunto} muestra una imagen compuesta por todos los ripples observados y el caso del circuito sin ning\'un capacitor. Todas las im\'agenes preservan la escala temporal (10 ms por cada rect\'angulo) y s\'olo la \'ultima modifica la escala de voltaje (cambiando de 2 V a 50 mV por cada rect\'angulo).
@@ -343,7 +343,7 @@ Al agregar un capacitor de en paralelo a la resistencia de carga, sobre la cu\'a
 \label{fig:ripplejunto}
 \end{figure} 
 
-Cabe destacar que al agregar mayor capacidad, m\'as se reducen las oscilaciones del rectificador de onda completa original. Sin embargo, la frecuencia de las oscilaciones se mantiene igual, como se muestra en la Figura \ref{fig:ripplejunto}, dado por el hecho de que todos los m\'inimos coinciden. 
+Cabe destacar que al agregar mayor capacidad, m\'as se reducen las oscilaciones del rectificador de onda completa original, asemej\'andose m\'as a una corriente continua. Sin embargo, la frecuencia de las oscilaciones se mantiene igual, como se muestra en la Figura \ref{fig:ripplejunto}, dado por el hecho de que todos los m\'inimos coinciden. 
 
 %------------------------------------------------
 %------------------------------------------------
