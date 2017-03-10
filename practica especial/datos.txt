@@ -1,0 +1,5 @@
+CH1 Voltaje ampli CH2 intensidad entre comillas ONDA CUAD
+CH1 Voltaje ampli CH2 intensidad entre comillas ONDA TRIANGULAR:
+
+Voltaje generador: 100 mVpp a 400 Hz
+
